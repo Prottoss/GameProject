@@ -14,12 +14,16 @@ export class GenresSelectComponent implements OnInit {
   constructor(public genresService: GenresService) { }
 
   ngOnInit(): void {
+    //console.log(this.chosenGenre)
+    
   }
 
-  selectedGenre(genreName: string)
-  {
-    this.chosenGenre = genreName;
-    console.log(this.chosenGenre);
-  }
+  // selectedGenre(genreName: string)
+  // {
+  //   this.chosenGenre = genreName;
+  //   console.log(this.chosenGenre);
+  // }
+
+
 
 }

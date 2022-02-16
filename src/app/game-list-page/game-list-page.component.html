@@ -6,7 +6,7 @@
             <!--<div class="col-sm" *ngFor="let i of gamesService.getGames()">
                 <app-game-display [game]="i"></app-game-display>
             </div>-->
-            <div class="col-sm" *ngFor="let g of games">
+            <div class="col-sm" *ngFor="let g of games| genreFilter:genresComp.chosenGenre; let i = index">
                 <app-game-display [game]="g"></app-game-display>
             </div>
         </div>

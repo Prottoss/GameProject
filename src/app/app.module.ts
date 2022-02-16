@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { GenresSelectComponent } from './genres-select/genres-select.component';
 import { AddGamesComponent } from './add-games/add-games.component';
 import { AddGamesPageComponent } from './add-games-page/add-games-page.component';
+import { GenreFilterPipe } from './genre-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddGamesPageComponent } from './add-games-page/add-games-page.component
     FooterComponent,
     GenresSelectComponent,
     AddGamesComponent,
-    AddGamesPageComponent
+    AddGamesPageComponent,
+    GenreFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { AddGamesPageComponent } from './add-games-page/add-games-page.component
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
-    multi: true}],
+    multi: true},
+    GenresSelectComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

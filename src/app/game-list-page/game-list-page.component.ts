@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Game } from '../dto/Game';
 import { GamesService } from '../games.service';
+import { GenresSelectComponent } from '../genres-select/genres-select.component';
 
 @Component({
   selector: 'app-game-list-page',
@@ -12,11 +13,12 @@ export class GameListComponent implements OnInit {
   games: Game[] = [];
   chosenGenre: string = "";
 
-  constructor( public gamesService: GamesService) { }
+  constructor( public gamesService: GamesService, public genresComp: GenresSelectComponent) { }
 
   ngOnInit(): void 
-  {
-    this.gamesService.getGames().subscribe((data)=>{this.games = data});//.filter((g)=>{return g.gameGenre==this.chosenGenre})});
+  { 
+    this.chosenGenre = this.genresComp.chosenGenre;
+    this.gamesService.getGames().subscribe((data)=>{this.games = data.filter((g)=>{return g.gameGenre==this.chosenGenre})});
   }
 
 
