@@ -19,13 +19,14 @@
                 </ul>
             </div>-->
 
-            <div class="col">
-                <select class="col form-control sm" [(ngModel)]="chosenGenre" (change)="onGenreChanged($event)">
+            <div class="dropdown">
+                <select class="dropdown dropdown-menu-dark py-2 m-1 rounded" [(ngModel)]="chosenGenre" (change)="onGenreChanged($event)">
                   <option value="">All Genres</option>
                   <option value="MMORPG">MMORPG</option>
                   <option value="Racing">Racing</option>
                   <option value="Action">Action</option>
                   <option value="Adventure">Adventure</option>
+                  <option value="Survival">Survival</option>
               </select>
             </div>
         </div>

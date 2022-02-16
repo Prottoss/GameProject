@@ -1,4 +1,4 @@
-<nav class="py-3 bg-dark text-white">
+<nav *ngIf="auth.isLoggedIn()" class="py-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -17,7 +17,7 @@
                 </li>        
             </ul>
                 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-right mb-md-0">
+            <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link text-white mr-3" routerLink="logout">Log Out</a>
                 </li>
