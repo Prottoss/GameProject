@@ -16,7 +16,7 @@ export class GameListComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    this.gamesService.getGames().subscribe((data)=>{this.games = data.filter((g)=>{return g.gameGenre==this.chosenGenre})});
+    this.gamesService.getGames().subscribe((data)=>{this.games = data});//.filter((g)=>{return g.gameGenre==this.chosenGenre})});
   }
 
 
