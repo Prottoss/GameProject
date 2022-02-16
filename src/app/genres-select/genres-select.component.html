@@ -1,25 +1,23 @@
-<div class="dropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Genres
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li class="dropdown-item"
-                *ngFor="let genre of genreService.genres"
-                (click)="selectedGenre(genre.genreName)"
-                [class.active]="genre.genreName==selGenre"
-                >
-                {{ genre.genreName}}  
-            </li>
-
-        </ul>
-      </li>
-    </ul>
-</div>
-
-
-
-
-
-
+<nav class="py bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="dropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Genres
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li class="dropdown-item"
+                            *ngFor="let genre of genresService.genres"
+                            (click)="selectedGenre(genre.genreName)"
+                            [class.active]="genre.genreName==chosenGenre">
+                            {{ genre.genreName}}  
+                        </li>
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

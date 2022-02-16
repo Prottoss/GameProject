@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Genre } from '../dto/Genre';
+import { Component, OnInit } from '@angular/core';
 import { GenresService } from '../genres.service';
 
 @Component({
@@ -9,28 +8,17 @@ import { GenresService } from '../genres.service';
 })
 export class GenresSelectComponent implements OnInit {
 
-  genres : Genre[] = [];
-  //genre!: Genre;
-  selGenre!: string;
-  //gamesGenre: string = "";
+  chosenGenre: string = "";
 
-  @Output() public selected = new EventEmitter<any>();
-  
-  constructor(public genreService : GenresService) { }
+  constructor(public genresService: GenresService) { }
 
-  ngOnInit(): void{
-    //this.genres = this.genreService.getGenres();//.subscribe((data: Genre[])=>{this.genres = data});
-    //this.customers = this.custService.getCustomers();
-    //this.selected.emit(this.customers[0]);
+  ngOnInit(): void {
   }
 
-  selectedGenre(genreName : string)
+  selectedGenre(genreName: string)
   {
-    console.log(genreName);
-    return this.selGenre = genreName;
-    let selGenre: Genre = this.genres.filter((g)=>{return g.genreName == genreName;})[0];
-    this.selected.emit(selGenre);
-    console.log(this.selGenre);
+    this.chosenGenre = genreName;
+
   }
 
 }
