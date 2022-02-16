@@ -1,0 +1,12 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <!--<div class="col-sm" *ngFor="let i of gamesService.getGames()">
+                <app-game-display [game]="i"></app-game-display>
+            </div>-->
+            <div class="col-sm" *ngFor="let g of games | gamesFilter:gamesGenre; let i = index">
+                <app-game-display [game]="g"></app-game-display>
+            </div>
+        </div>
+    </div>        
+</div>
