@@ -10,15 +10,13 @@ import { GamesService } from '../games.service';
 export class GameListComponent implements OnInit {
 
   games: Game[] = [];
-  
-  @Input() public game!: Game;
+  chosenGenre: string = "";
 
   constructor( public gamesService: GamesService) { }
 
-  ngOnInit(): void {
-    //this.gamesGenre = this.genres.selectedGenre(this.gamesGenre);
-    //console.log(this.gamesGenre);
-    this.gamesService.getGames().subscribe((data)=>{this.games = data});//.filter((g)=>{return g.gameGenre==this.chosenGenre})});
+  ngOnInit(): void 
+  {
+    this.gamesService.getGames().subscribe((data)=>{this.games = data.filter((g)=>{return g.gameGenre==this.chosenGenre})});
   }
 
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Game } from '../dto/Game';
 import { GenresService } from '../genres.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class GenresSelectComponent implements OnInit {
   selectedGenre(genreName: string)
   {
     this.chosenGenre = genreName;
-
+    console.log(this.chosenGenre);
   }
 
 }

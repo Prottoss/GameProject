@@ -8,7 +8,11 @@ import { Game } from '../dto/Game';
 })
 export class GamePageComponent implements OnInit {
 
-  @Input() game! : Game;
+  game!: Game;
+  @Input() set selGames(game:Game)
+  {
+    this.game = game;
+  }
   
   constructor() { }
 
