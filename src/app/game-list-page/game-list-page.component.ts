@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Game } from '../dto/Game';
 import { GamesService } from '../games.service';
 import { GenresSelectComponent } from '../genres-select/genres-select.component';
@@ -11,14 +11,17 @@ import { GenresSelectComponent } from '../genres-select/genres-select.component'
 export class GameListComponent implements OnInit {
 
   games: Game[] = [];
-  chosenGenre: string = "";
+  chosenGenre = "";
 
   constructor( public gamesService: GamesService, public genresComp: GenresSelectComponent) { }
 
   ngOnInit(): void 
-  { 
-    this.chosenGenre = this.genresComp.chosenGenre;
-    this.gamesService.getGames().subscribe((data)=>{this.games = data.filter((g)=>{return g.gameGenre==this.chosenGenre})});
+  {
+    this.gamesService.getGames().subscribe((data)=>{this.games = data}); // get all game data, it will be filtered with the pipe later
+  }
+
+  genreChosen(genreName: string){
+    console.log(genreName);
   }
 
 

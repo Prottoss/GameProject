@@ -9,20 +9,20 @@ import { GenresService } from '../genres.service';
 })
 export class GenresSelectComponent implements OnInit {
 
-  chosenGenre: string = "";
+  @Output() chosenGenreEvent = new EventEmitter<string>();
+  chosenGenre = "";
 
   constructor(public genresService: GenresService) { }
 
   ngOnInit(): void {
-    //console.log(this.chosenGenre)
+    this.chosenGenreEvent.emit(this.chosenGenre);
     
   }
 
-  // selectedGenre(genreName: string)
-  // {
-  //   this.chosenGenre = genreName;
-  //   console.log(this.chosenGenre);
-  // }
+  onGenreChanged(genreChangeEvent: Event){
+    this.chosenGenre = (<HTMLInputElement>genreChangeEvent.target).value;
+    this.chosenGenreEvent.emit(this.chosenGenre);
+  }
 
 
 
