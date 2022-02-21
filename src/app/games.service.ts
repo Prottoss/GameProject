@@ -25,6 +25,11 @@ export class GamesService {
     return this.http.get<Game[]>(this.url+"/getGames").pipe(tap((g)=>{this.games = g}));
   }
 
+  getGame(id:string)
+  {
+    return this.http.get<Game>(this.url+"/getGame?gameId="+id);
+  }
+
   //getGames() : Game[]{
     //return this.games;
   //}
