@@ -1,5 +1,5 @@
 export class Game{
-    gameId : string;
+    gameID : string;
     gameName : string;
     gameDescription : string;
     gameGenre: string;
@@ -7,7 +7,7 @@ export class Game{
     gamePic: string;
 
     constructor(gameId : string, gameName : string, gameDescription : string, gameGenre: string, gamePrice: number, gamePic: string){
-        this.gameId = gameId;
+        this.gameID = gameId;
         this.gameName = gameName;
         this.gameDescription = gameDescription;
         this.gameGenre = gameGenre;
