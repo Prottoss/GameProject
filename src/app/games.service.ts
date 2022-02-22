@@ -33,4 +33,16 @@ export class GamesService {
   //getGames() : Game[]{
     //return this.games;
   //}
+
+  saveGame(game : Game){
+    console.log("Save new Game : ", game.gameName);
+
+    if(game.gameID == ""){
+    this.http.post<Game>(this.url + "/addGames", game).subscribe(
+      (e: Game) => {
+        console.log("Callback, e = ", e);
+        this.games.push(e);
+      });          
+    }
+  }
 }

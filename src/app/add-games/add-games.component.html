@@ -1,1 +1,65 @@
-<p>add-games works!</p>
+<div class="card">
+    <div class="card-header">
+        <h3>Add Game</h3>
+    </div>
+    <form (ngSubmit)="onSubmit(addForm)" #addForm="ngForm"> 
+       <div class="card-body">
+        <div class="form-group">
+         <label for="gameID">Game ID</label>
+            <input type="text" name="gameID" class="form-control" 
+                [value]="game.gameID" 
+                ngModel [readonly]=true>        
+        </div>
+
+     <div class="form-group">
+         <label for="gameName">Game Name</label>
+         <input type="text" name="gameName" class="form-control" 
+         [value]="game.gameName" 
+         ngModel [readonly]="notEditable">        
+     </div>
+
+    <div class="form-group">
+        <label for="gameDescription">Game Description</label>
+        <input type="text" name="gameDescription" class="form-control" 
+        [value]="game.gameDescription"
+         ngModel [readonly]="notEditable">        
+    </div>
+
+    <div class="form-group">
+        <label for="gameGenre">Game Genre</label>
+        <input type="text" name="gameGenre" class="form-control" 
+        [value]="game.gameGenre" 
+        ngModel [readonly]="notEditable">        
+    </div>
+
+    <div class="form-group">
+        <label for="gamePrice">Game Price</label>
+        <input type="text" name="gamePrice" class="form-control"
+         [value]="game.gamePrice" 
+         ngModel [readonly]="notEditable">        
+    </div>
+
+    <div class="form-group">
+        <label for="gamePic">Game Image</label>
+        <input type="text" name="gamePic" class="form-control"
+         [value]="game.gamePic" 
+         ngModel [readonly]="notEditable">        
+    </div>
+
+    <div class="card-footer">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success" type="submit">{{buttonText}}</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" (click)="new()">New</button>
+            </div>
+
+            <div class="col-3">
+               
+            </div>
+        </div>
+    </div> 
+       </div>
+    </form>
+</div>
