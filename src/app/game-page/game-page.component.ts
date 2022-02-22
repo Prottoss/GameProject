@@ -11,12 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GamePageComponent implements OnInit {
 
-  gameId: string = "0";
-  game: Game=new Game("","","","",0,"");
+  gameId!: number;
+  //game: Game=new Game("","","","",0,"");
+  game!: Game;
   private sub : any;
   
   
-  constructor(private gameService: GamesService,private route: ActivatedRoute) {
+  constructor(private gameService: GamesService, private route: ActivatedRoute) {
     
   }
 
