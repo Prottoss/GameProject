@@ -12,12 +12,9 @@ export class GamesService {
 
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
 
-  constructor(private http: HttpClient) { 
-    // dummy games
-    //this.games.push(new Game("ugytiu","Epic Game 1","This is a description for epic game 1", 69.99,""));
-    //this.games.push(new Game("af","Epic Game 2","This is a description for epic game 2", 49.99,""));
-    //this.games.push(new Game("aef","Epic Game 3","This is a description for epic game 3", 74.99,""));
-    //this.games.push(new Game("aewf","Epic Game 4","This is a description for epic game 4", 24.99,""));
+  constructor(private http: HttpClient) 
+  { 
+    
   }
 
   getGames()
@@ -25,7 +22,7 @@ export class GamesService {
     return this.http.get<Game[]>(this.url+"/getGames").pipe(tap((g)=>{this.games = g}));
   }
 
-  getGame(id:string)
+  getGame(id:number)
   {
     return this.http.get<Game>(this.url+"/getGame?gameId="+id);
   }
