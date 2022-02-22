@@ -9,40 +9,49 @@ import { GamesService } from '../games.service';
   styleUrls: ['./add-games.component.css']
 })
 export class AddGamesComponent implements OnInit {
+
   @Input() game : Game;
 
   notEditable: boolean = true;
   buttonText: string = "Save";
 
   constructor(private gameService : GamesService) {
-    this.game = new Game("","","","",0,"");
-   }
+    this.game = new Game(0,"","","",0,"");
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit(details : NgForm){
-    if(this.notEditable){
+  onSubmit(details : NgForm)
+  {
+    if(this.notEditable)
+    {
       this.notEditable = false;
       this.buttonText = "Save";
-    }else{
+    }
+    else
+    {
       this.notEditable = true;
       this.buttonText = "Amend";
     
-    for(let key in details.value){
-      if(details.value[key].length != 0 ){
-        (this.game as any)[key] = details.value[key];
-      } 
-  }
-  console.log("Game = ", this.game);
-  this.gameService.saveGame(this.game);
-  	}
-  }
+      for(let key in details.value)
+      {
+        if(details.value[key].length != 0 )
+        {
+          (this.game as any)[key] = details.value[key];
+        }
+      }
 
-  new(){
+      console.log("Game = ", this.game);
+      this.gameService.saveGame(this.game);
+    } 
+  }
+  
+  new()
+  {
     this.notEditable = false;
     this.buttonText = "Save";
-    this.game = new Game("","","","",0,"");
+    this.game = new Game(0,"","","",0,"");
   }
 
 }

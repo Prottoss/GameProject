@@ -34,7 +34,7 @@ export class GamesService {
   saveGame(game : Game){
     console.log("Save new Game : ", game.gameName);
 
-    if(game.gameID == ""){
+    if(game.gameID == 0){
     this.http.post<Game>(this.url + "/addGames", game).subscribe(
       (e: Game) => {
         console.log("Callback, e = ", e);
