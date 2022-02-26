@@ -1,3 +1,4 @@
+import { GameKey } from "./GameKey";
 export class Game{
     gameID : string;
     gameName : string;
@@ -5,6 +6,8 @@ export class Game{
     gameGenre: string;
     gamePrice: number;
     gamePic: string;
+    gameKeys: GameKey[];
+
 
     constructor(gameId : string, gameName : string, gameDescription : string, gameGenre: string, gamePrice: number, gamePic: string){
         this.gameID = gameId;
@@ -13,6 +16,7 @@ export class Game{
         this.gameGenre = gameGenre;
         this.gamePrice = gamePrice;
         this.gamePic = gamePic;
+        this.gameKeys = [];
     }
 
 }
