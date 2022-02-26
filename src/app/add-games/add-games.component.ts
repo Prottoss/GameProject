@@ -13,10 +13,10 @@ export class AddGamesComponent implements OnInit {
   @Input() game : Game;
 
   notEditable: boolean = true;
-  buttonText: string = "Save";
+  buttonText: string = "Edit";
 
   constructor(private gameService : GamesService) {
-    this.game = new Game(0,"","","",0,"");
+    this.game = new Game("0","","","",0,"");
   }
 
   ngOnInit(): void {
@@ -32,13 +32,13 @@ export class AddGamesComponent implements OnInit {
     else
     {
       this.notEditable = true;
-      this.buttonText = "Amend";
+      this.buttonText = "Edit";
     
-      for(let key in details.value)
+      for(let i in details.value)
       {
-        if(details.value[key].length != 0 )
+        if(details.value[i].length != 0 )
         {
-          (this.game as any)[key] = details.value[key];
+          (this.game as any)[i] = details.value[i];
         }
       }
 
@@ -51,7 +51,7 @@ export class AddGamesComponent implements OnInit {
   {
     this.notEditable = false;
     this.buttonText = "Save";
-    this.game = new Game(0,"","","",0,"");
+    this.game = new Game("0","","","",0,"");
   }
 
 }

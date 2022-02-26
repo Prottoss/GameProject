@@ -31,15 +31,24 @@ export class GamesService {
     //return this.games;
   //}
 
-  saveGame(game : Game){
+  saveGame(game : Game)
+  {
     console.log("Save new Game : ", game.gameName);
 
-    if(game.gameID == 0){
-    this.http.post<Game>(this.url + "/addGames", game).subscribe(
-      (e: Game) => {
-        console.log("Callback, e = ", e);
-        this.games.push(e);
+    if(game.gameID == "0")
+    {
+      this.http.post<Game>(this.url + "/addGame", game).subscribe((g: Game) => 
+      {
+        console.log("Callback, g = ", g);
+        this.games.push(g);
       });          
+    }
+    else{
+      this.http.put<Game>(this.url+"/addGame",game).subscribe((g: Game) =>
+      {
+        console.log("callback, g= ",g);
+        //this.customers.push(g);
+      });
     }
   }
 }

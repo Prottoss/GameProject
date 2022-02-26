@@ -12,8 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class GamePageComponent implements OnInit {
 
   gameId!: number;
-  //game: Game=new Game("","","","",0,"");
-  game!: Game;
+  game: Game=new Game("","","","",0,"");
+  //game!: Game;
   private sub : any;
   
   
