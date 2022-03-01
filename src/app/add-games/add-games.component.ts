@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Game } from '../dto/Game';
 import { FormGroup, NgForm } from '@angular/forms';
 import { GamesService } from '../games.service';
+import { GameKey } from '../dto/GameKey';
 
 @Component({
   selector: 'app-add-games',
@@ -43,6 +44,7 @@ export class AddGamesComponent implements OnInit {
       }
 
       console.log("Game = ", this.game);
+      this.game.gameKeys.splice(0,0, new GameKey(""));
       this.gameService.saveGame(this.game);
     } 
   }
