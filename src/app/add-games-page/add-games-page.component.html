@@ -1,1 +1,4 @@
-<app-add-games></app-add-games>
+<div class="row">
+    <app-game-page (game)="getGame($event)" class="col"></app-game-page>
+    <app-add-games [game]="game" class="col"></app-add-games>
+</div> 

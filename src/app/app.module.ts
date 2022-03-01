@@ -17,6 +17,8 @@ import { AddGamesComponent } from './add-games/add-games.component';
 import { AddGamesPageComponent } from './add-games-page/add-games-page.component';
 import { GenreFilterPipe } from './genre-filter.pipe';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { CustomerProfilePageComponent } from './customer-profile-page/customer-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
     AddGamesComponent,
     AddGamesPageComponent,
     GenreFilterPipe,
-    CheckoutPageComponent
+    CheckoutPageComponent,
+    CustomerProfileComponent,
+    CustomerProfilePageComponent
   ],
   imports: [
     BrowserModule,
