@@ -44,7 +44,7 @@ export class GamesService {
       });          
     }
     else{
-      this.http.put<Game>(this.url+"/addGame",game).subscribe((g: Game) =>
+      this.http.post<Game>(this.url+"/addGame",game).subscribe((g: Game) =>
       {
         console.log("callback, g= ",g);
         //this.customers.push(g);

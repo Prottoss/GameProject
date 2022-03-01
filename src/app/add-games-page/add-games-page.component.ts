@@ -16,7 +16,7 @@ export class AddGamesPageComponent implements OnInit {
   }
 
   getGame(Game : Game){
-    console.log("customer-page.getCustomer : customer = ", Game);
+    //console.log(Game);
     this.game = Game;
   }
 
