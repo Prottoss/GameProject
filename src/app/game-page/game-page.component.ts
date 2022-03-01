@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GamePageComponent implements OnInit {
 
-  @Output() game: EventEmitter<Game> = new EventEmitter<Game>();
+  
 
   gameId!: number;
   games: Game=new Game("","","","",0,"");
