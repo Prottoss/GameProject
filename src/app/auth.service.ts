@@ -25,6 +25,7 @@ export class AuthService {
         const token = res['data']['id_token'];
         console.log("Login Successful id_token =",token);
         localStorage.setItem('id_token', token);
+        localStorage.setItem("username",username);
         localStorage.setItem('refresh_token',res['data']['refresh_token']);
       }else{
         alert("Login Failed: " + res['Msg']);
@@ -34,6 +35,7 @@ export class AuthService {
 
 
   logout(){
+    localStorage.removeItem("username");
     localStorage.removeItem('id_token');
     localStorage.removeItem('refresh_token');
   }

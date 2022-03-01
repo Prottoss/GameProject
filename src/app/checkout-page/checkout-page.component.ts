@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { User } from '../dto/User';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-checkout-page',
@@ -8,11 +10,13 @@ import { User } from '../dto/User';
 })
 export class CheckoutPageComponent implements OnInit {
 
-  userName = "Bob";
-  userSurname = "bibi";
-  userEmail = "lolollo@lolol.lol"
+  loggedIn = localStorage.getItem("username");
 
-  constructor() { }
+  constructor(public gameService:GamesService, public auth:AuthService) 
+  { 
+    
+
+  }
 
   ngOnInit(): void {
     
