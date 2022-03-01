@@ -18,6 +18,7 @@ import { AddGamesPageComponent } from './add-games-page/add-games-page.component
 import { GenreFilterPipe } from './genre-filter.pipe';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfilePageComponent } from './customer-profile-page/customer-profile-page.component';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CustomerProfilePageComponent } from './customer-profile-page/customer-p
     AddGamesPageComponent,
     GenreFilterPipe,
     CustomerProfileComponent,
-    CustomerProfilePageComponent
+    CustomerProfilePageComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
