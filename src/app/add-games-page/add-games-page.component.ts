@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../dto/Game';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-add-games-page',
@@ -10,9 +11,11 @@ export class AddGamesPageComponent implements OnInit {
 
   game : Game = new Game("","","","",0,"");
 
-  constructor() { }
+  constructor(public userService: UsersService) { }
 
   ngOnInit(): void {
+
+    console.log(this.userService.getUsers)
   }
 
   getGame(Game : Game){
