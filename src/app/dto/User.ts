@@ -2,7 +2,7 @@ import { Order } from "./Order";
 
 export class User
 {
-    userID:string;
+    userID: string;
     username: string;
     userFirstname: string;
     userSurname: string;
@@ -10,7 +10,7 @@ export class User
     userDOB: Date;
     userGender: string;
     userType: string;
-    userAccountCreated:Date;
+    userAccountCreated: Date;
     userOrders: Order[];
 
     public constructor (uId: string, uName:string, uFname:string, uSurname: string, uEmail:string, uDOB:Date, uGender: string, uType:string,uAccountCreated: Date)
@@ -26,4 +26,5 @@ export class User
         this.userAccountCreated = uAccountCreated;
         this.userOrders = [];
     }
+    
 }

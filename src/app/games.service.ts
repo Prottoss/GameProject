@@ -22,14 +22,10 @@ export class GamesService {
     return this.http.get<Game[]>(this.url+"/getGames").pipe(tap((g)=>{this.games = g}));
   }
 
-  getGame(id:number)
+  getGame(id:string)
   {
     return this.http.get<Game>(this.url+"/getGame?gameId="+id);
   }
-
-  //getGames() : Game[]{
-    //return this.games;
-  //}
 
   saveGame(game : Game)
   {
@@ -47,7 +43,6 @@ export class GamesService {
       this.http.post<Game>(this.url+"/addGame",game).subscribe((g: Game) =>
       {
         console.log("callback, g= ",g);
-        //this.customers.push(g);
       });
     }
   }

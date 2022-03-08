@@ -44,7 +44,7 @@ export class AddGamesComponent implements OnInit {
       }
 
       console.log("Game = ", this.game);
-      this.game.gameKeys.splice(0,0, new GameKey(""));
+      //this.game.gameKeys.splice(0,0, new GameKey(""));
       this.gameService.saveGame(this.game);
     } 
   }

@@ -13,8 +13,8 @@ export class GamePageComponent implements OnInit {
 
   
 
-  gameId!: number;
-  games: Game=new Game("","","","",0,"");
+  gameId!: string;
+  games: Game = new Game("","","","",0,"");
   //game!: Game;
   private sub : any;
   

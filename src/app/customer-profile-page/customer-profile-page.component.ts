@@ -9,7 +9,7 @@ import { UsersService } from '../users.service';
 })
 export class CustomerProfilePageComponent implements OnInit {
 
-  user!: User;
+  user: User = new User("","","","","",new Date(),"","",new Date());
   
   constructor(public usersService:UsersService) { }
 

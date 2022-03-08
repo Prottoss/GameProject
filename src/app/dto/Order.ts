@@ -1,19 +1,18 @@
 import { Game } from "./Game";
+import { OrderItem } from "./OrderItem";
 
 export class Order
 {
     orderID: string;
+    orderDate: Date;
     orderPrice: number;
-    orderQuantity: number;
-    orderTotal: number;
-    orderGames: Game[];
+    orderItem: OrderItem[];
 
-    constructor (oId: string, oPrice: number, oQuantity: number, oTotal:number)
+    constructor (oId: string, oPrice: number, oDate:Date)
     {
         this.orderID = oId;
+        this.orderDate = oDate;
         this.orderPrice = oPrice;
-        this.orderQuantity = oQuantity;
-        this.orderTotal = oTotal;
-        this.orderGames = [];
+        this.orderItem = [];
     }
 }
