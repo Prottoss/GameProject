@@ -7,6 +7,7 @@ import { GameListComponent } from './game-list-page/game-list-page.component';
 import { GamePageComponent } from './game-page/game-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   {path: "register", component: RegisterComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: "addGames", component: AddGamesPageComponent},
   {path: "profile", component: CustomerProfilePageComponent},
   {path: "logout", component: LoginComponent},
+  {path: "orders", component: OrdersComponent},
   {path: "", component: LoginComponent}
 ];
 
