@@ -20,6 +20,8 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfilePageComponent } from './customer-profile-page/customer-profile-page.component';
 import { GameComponent } from './game/game.component';
+import { OrdersPageComponent } from './orders-page/orders-page.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { GameComponent } from './game/game.component';
     CheckoutPageComponent,
     CustomerProfileComponent,
     CustomerProfilePageComponent,
-    GameComponent
+    GameComponent,
+    OrdersPageComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
