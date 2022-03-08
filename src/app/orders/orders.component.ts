@@ -12,7 +12,7 @@ export class OrdersComponent implements OnInit {
   @Output() orders: EventEmitter<Order> = new EventEmitter<Order>();
 
   order : Order[] = [];
-  selectedOrder : Order = new Order("",0,0,0);
+  selectedOrder : Order = new Order("",0,0, new Date());
   searchText : string = "";
 
   constructor(private orderService: OrdersService) { }

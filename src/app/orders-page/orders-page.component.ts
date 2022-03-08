@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class OrdersPageComponent implements OnInit {
 
   orderId!: number;
-  orders: Order = new Order("",0,0,0);
+  orders: Order = new Order("", 0,0, new Date());
   private sub : any;
 
   constructor(private orderService: OrdersService, private route: ActivatedRoute) { 

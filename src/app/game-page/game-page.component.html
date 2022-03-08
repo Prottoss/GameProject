@@ -1,23 +1,30 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3 g-5">
-            <img class="d-block w-100" src="{{games.gamePic}}" alt="game pic">
+            <img class="d-block w-100" src="{{game.gamePic}}" alt="game pic">
         </div>
         <div class="col-md-6">
             <p class="newarrival text-centre">NEW</p>
-            <h1>{{games.gameName}}</h1>
-            <h2>€ {{games.gamePrice}}</h2>
+            <h1>{{game.gameName}}</h1>
+            <h2>€ {{game.gamePrice}}</h2>
             <h3>Genre:</h3>
-            <p>{{games.gameGenre}}</p>
+            <p>{{game.gameGenre}}</p>
             <br>
-            <button class="btn btn-primary" routerLink="checkout">Place Order</button>
+
+            <div class="form-group">
+                <label for="gameQty">Quantity</label>
+                <br>
+                <input type="number" min=0 max={{maxQty}} name="gameQty" class="form-control" [(ngModel)]="qty" class="col-1">        
+            </div>
+            <br>
+            <button class="btn btn-primary" routerLink="checkout" type="submit" (click)="onPlaceOrder(qty)">Place Order</button>   
         </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
         <h4>About</h4>
-        <p>{{games.gameDesc}}</p>
+        <p>{{game.gameDesc}}</p>
         <br>
     </div>
 </div>

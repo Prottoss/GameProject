@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Order } from './dto/Order';
-import { tap } from 'rxjs/operators';
+import { Subject,Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
 
+  quantity!: number;
+
   orders : Order[]=[];
+  myDate =  new Date();
 
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
 
@@ -18,11 +21,20 @@ export class OrdersService {
 
 
    constructor() {
-    this.orders.push(new Order("1",90.00,1,90.00));
+    this.orders.push(new Order("1", 90.00, 1, this.myDate));
 
-    this.orders.push(new Order("2",10.00, 2,20.00));
+    this.orders.push(new Order("2", 10.00, 3, this.myDate));
 
-    this.orders.push(new Order("3",20.00,3,60.00));
+    this.orders.push(new Order("3", 20.00, 5, this.myDate));
+  }
+
+  setQty(qty: number)
+  {
+    this.quantity = qty;
+  }
+  getQty()
+  {
+    return this.quantity;
   }
 
 
@@ -38,5 +50,5 @@ export class OrdersService {
    getOrder(id:number)
    {
      //return this.http.get<Order>(this.url+"/getOrders?orderID="+id);
-   }  
+   } 
 }

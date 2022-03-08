@@ -46,4 +46,9 @@ export class GamesService {
       });
     }
   }
+
+  getKeysCount()
+  {
+    //return this.httm.get<Game>this.url+"/")
+  }
 }
