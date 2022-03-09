@@ -22,6 +22,7 @@ import { CustomerProfilePageComponent } from './customer-profile-page/customer-p
 import { GameComponent } from './game/game.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { OrdersComponent } from './orders/orders.component';
+import { PlacedOrderComponent } from './placed-order/placed-order.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { OrdersComponent } from './orders/orders.component';
     CustomerProfilePageComponent,
     GameComponent,
     OrdersPageComponent,
-    OrdersComponent
+    OrdersComponent,
+    PlacedOrderComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Game } from './dto/Game';
 import { tap } from "rxjs/operators";
+import { OrdersService } from './orders.service';
 
 @Injectable({
   providedIn: 'root'
@@ -47,8 +48,8 @@ export class GamesService {
     }
   }
 
-  getKeysCount()
+  getKeysCount(id:String)
   {
-    //return this.httm.get<Game>this.url+"/")
+    return this.http.get<number>(this.url+"/getStock?gameId="+id);
   }
 }

@@ -14,10 +14,10 @@
             <div class="form-group">
                 <label for="gameQty">Quantity</label>
                 <br>
-                <input type="number" min=0 max={{maxQty}} name="gameQty" class="form-control" [(ngModel)]="qty" class="col-1">        
+                <input type="number" min=0 max={{maxQty}} value="1" name="gameQty" class="form-control" [(ngModel)]="qty" class="col-1">        
             </div>
             <br>
-            <button class="btn btn-primary" routerLink="checkout" type="submit" (click)="onPlaceOrder(qty)">Place Order</button>   
+            <button class="btn btn-primary" routerLink="checkout" type="submit" (click)="onPlaceOrder(qty)" [disabled]="noStock">{{buttonText}}</button>   
         </div>
     </div>
 </div>

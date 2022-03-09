@@ -19,28 +19,39 @@ export class GamePageComponent implements OnInit {
   gameId!: string;
   game: Game = new Game("","","","",0,"");
   private sub : any;
+  noStock = false;
+  buttonText = "Place Order";
   
   
-  constructor(private gameService: GamesService, private orderService:OrdersService, private route: ActivatedRoute) {
-    
-  }
-
-  ngOnInit(): void {
-    this.maxQty = 10;
-    //this.maxQty = this.gameService.getKeysCount(); //requers a call to check count of keys available per game(coming from Games.Service).
-
+  constructor(private gameService: GamesService, private orderService:OrdersService, private route: ActivatedRoute)
+  {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
       console.log("GameId: ", this.gameId);
       this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g})).subscribe();
-   });
+    });
+
+    this.gameService.getKeysCount(this.gameId).subscribe((num) =>
+    {
+      this.maxQty = num;
+
+      if(this.maxQty == 0)
+      {
+        this.buttonText = "Out of Stock";
+        this.noStock = true;
+      };
+      console.log("callback, g= ",num);
+    }); 
+  }
+
+  ngOnInit(): void {
   }
 
   onPlaceOrder(value : number)
   {
     this.qty = value;
     this.orderService.setQty(this.qty);
-    console.log(this.qty)
+    //console.log(this.qty)
   }
 
   ngOnDestroy() {

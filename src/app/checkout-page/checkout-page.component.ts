@@ -1,4 +1,3 @@
-import { typeWithParameters } from '@angular/compiler/src/render3/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs/operators';
@@ -44,8 +43,15 @@ export class CheckoutPageComponent implements OnInit
 
   ngOnInit(): void 
   {
-    this.totalPrice = this.game.gamePrice*this.gameQty;
-    console.log(this.game.gamePrice);
+  }
+
+  onBuy()
+  {
+
+    console.log(this.gameId);
+    console.log(this.gameQty);
+    console.log(this.user.username);
+    console.log(this.ordersService.makeOrder(this.gameId,this.gameQty, this.user.username));
   }
 
   ngOnDestroy() {

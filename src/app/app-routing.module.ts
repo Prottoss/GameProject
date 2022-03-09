@@ -8,6 +8,7 @@ import { GamePageComponent } from './game-page/game-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OrdersComponent } from './orders/orders.component';
+import { PlacedOrderComponent } from './placed-order/placed-order.component';
 
 const routes: Routes = [
   {path: "register", component: RegisterComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: "profile", component: CustomerProfilePageComponent},
   {path: "logout", component: LoginComponent},
   {path: "orders", component: OrdersComponent},
+  {path: "placedOrder", component: PlacedOrderComponent},
   {path: "", component: LoginComponent}
 ];
 
