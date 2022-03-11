@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Order } from '../dto/Order';
-import { OrdersService } from '../orders.service';
-
+import { User } from '../dto/User';
+import { UsersService } from '../users.service';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -9,23 +8,22 @@ import { OrdersService } from '../orders.service';
 })
 export class OrdersComponent implements OnInit {
 
-  @Output() orders: EventEmitter<Order> = new EventEmitter<Order>();
+  @Output() userOrder: EventEmitter<User> = new EventEmitter<User>();
 
-  order : Order[] = [];
-  selectedOrder : Order = new Order("",0,0, new Date());
+  orders : User[] =[] 
+  selectedOrder : User = new User("","","","","",new Date(),"","",new Date());
   searchText : string = "";
 
-  constructor(private orderService: OrdersService) { }
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
-    this.order = this.orderService.getOrders();
-    this.orders.emit(this.order[0]);
+    this.userService.getUsers().subscribe( (data)=>{this.orders = data;} );
   }
 
-  selected(order : Order){
+  selected(order : User){
     console.log("Selected = "+ order)
     this.selectedOrder = order;
-    this.orders.emit(order);
+    this.userOrder.emit(order);
   }
 
 }
