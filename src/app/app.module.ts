@@ -24,6 +24,7 @@ import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PlacedOrderComponent } from './placed-order/placed-order.component';
 import { OrderDetailsPageComponent } from './order-details-page/order-details-page.component';
+import { OrdersUserComponent } from './orders-user/orders-user.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { OrderDetailsPageComponent } from './order-details-page/order-details-pa
     OrdersComponent,
     PlacedOrderComponent,
     OrderDetailsPageComponent,
+    OrdersUserComponent,
   ],
   imports: [
     BrowserModule,
