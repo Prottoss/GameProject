@@ -10,7 +10,8 @@
                 *ngFor="let o of orders let i = index" 
                 (click)="selected(o)"
                 [class.active]="o==selectedOrder">
-               <p>{{orders.userOrders}}</p>
+               <p>Order ID: {{o.userOrders[i].orderID}}</p>              
+               <p>Order Total: {{o.userOrders[i].orderPrice}}</p>
             </li>
          </ul>
     </div>

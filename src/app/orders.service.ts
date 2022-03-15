@@ -4,6 +4,7 @@ import { Order } from './dto/Order';
 import { Subject,Observable } from 'rxjs';
 import { GamesService } from './games.service';
 import { UsersService } from './users.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -45,17 +46,14 @@ export class OrdersService {
   }
 
 
-   getOrderss()
+   getOrders()
    {
-    // return this.http.get<Order[]>(this.url+"/getOrders").pipe(tap((o)=>{this.orders = o}));
+    return this.http.get<Order[]>(this.url+"/getOrders").pipe(tap((o)=>{this.orders = o}));
    }
 
-   getOrders() {
-    return this.orders;
-  }
 
-   getOrder(id:number)
+   getOrder(id:string)
    {
-     //return this.http.get<Order>(this.url+"/getOrders?orderID="+id);
+     return this.http.get<Order>(this.url+"/getOrders?orderID="+id);
    } 
 }

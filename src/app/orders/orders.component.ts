@@ -10,7 +10,7 @@ export class OrdersComponent implements OnInit {
 
   @Output() userOrder: EventEmitter<User> = new EventEmitter<User>();
 
-  orders : User[] =[] 
+  orders : User[] =[];
   selectedOrder : User = new User("","","","","",new Date(),"","",new Date());
   searchText : string = "";
 
