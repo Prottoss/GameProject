@@ -28,6 +28,10 @@ export class GamesService {
     return this.http.get<Game>(this.url+"/getGame?gameId="+id);
   }
 
+  addKeys(id:string, keys:string[]){
+    return this.http.post(this.url+"/addKeys?gameId="+id, {"keys":keys});
+  }
+
   saveGame(game : Game)
   {
     console.log("Save new Game : ", game.gameName);
