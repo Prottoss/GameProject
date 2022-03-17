@@ -9,7 +9,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PlacedOrderComponent } from './placed-order/placed-order.component';
+<<<<<<< HEAD
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+=======
+import { OrdersUserComponent } from './orders-user/orders-user.component';
+>>>>>>> 42be68b372b4ff1bfcd5906b1cfe10eaffcc28da
 
 const routes: Routes = [
   //{path: "", redirectTo:"games", pathMatch: "full"},
@@ -19,6 +23,7 @@ const routes: Routes = [
   {path: "games/:gameId", component: GamePageComponent},
   {path: "checkout", component: CheckoutPageComponent },
   {path: "addGames", component: AddGamesPageComponent},
+  {path: "userOrders", component: OrdersUserComponent},
   {path: "profile", component: CustomerProfilePageComponent},
   {path: "logout", component: LoginComponent},
   {path: "orders", component: OrdersComponent},
