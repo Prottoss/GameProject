@@ -4,9 +4,20 @@
 <div class="album py-5">
     <div class="container">
         <div class="row row-cols-sm-4 g-3">
-            <div class="col-sm" *ngFor="let g of games| genreFilter:this.chosenGenre; let i = index">
-                <app-game-display [game]="g"></app-game-display>
-            </div>
+            <ng-container *ngFor="let g of games| genreFilter:this.chosenGenre; let i = index">
+                <div class="col-sm">
+                    <div class="card shadow bg-dark">
+                        <img class="card-img-top" src={{g.gamePic}} alt="game img">
+                        <div class="card-body">
+                            <h5 class="card-title">{{g.gameName}}</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="card-text">€ {{g.gamePrice}}</p>
+                            </div>
+                            <a routerLink="/games/{{g.gameID}}" class="stretched-link"></a>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
         </div>
     </div>
 </div>

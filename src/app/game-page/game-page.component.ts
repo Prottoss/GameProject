@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { OrdersService } from '../orders.service';
 import { Subscription } from 'rxjs';
+import { ShoppingCartService } from '../shopping-cart.service';
+
 
 @Component({
   selector: 'app-game-page',
@@ -15,6 +17,7 @@ import { Subscription } from 'rxjs';
 export class GamePageComponent implements OnInit {
 
   qty!: number;
+  defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
   game: Game = new Game("","","","",0,"");
@@ -23,7 +26,7 @@ export class GamePageComponent implements OnInit {
   buttonText = "Place Order";
   
   
-  constructor(private gameService: GamesService, private orderService:OrdersService, private route: ActivatedRoute)
+  constructor(private gameService: GamesService, private orderService:OrdersService, private route: ActivatedRoute, private cartService:ShoppingCartService)
   {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
@@ -45,13 +48,19 @@ export class GamePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //this.defaultQty;
   }
 
   onPlaceOrder(value : number)
   {
     this.qty = value;
     this.orderService.setQty(this.qty);
-    //console.log(this.qty)
+    console.log(this.qty)
+  }
+
+  addToCart(g: any)
+  {
+    this.cartService.addToCart(g);
   }
 
   ngOnDestroy() {

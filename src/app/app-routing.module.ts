@@ -9,12 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PlacedOrderComponent } from './placed-order/placed-order.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
+  //{path: "", redirectTo:"games", pathMatch: "full"},
+  {path: "cart", component: ShoppingCartComponent},
   {path: "register", component: RegisterComponent},
   {path: "games", component: GameListComponent},
-  {path: "gameinfo/:gameId", component: GamePageComponent},
-  {path: "gameinfo/:gameId/checkout", component: CheckoutPageComponent },
+  {path: "games/:gameId", component: GamePageComponent},
+  {path: "checkout", component: CheckoutPageComponent },
   {path: "addGames", component: AddGamesPageComponent},
   {path: "profile", component: CustomerProfilePageComponent},
   {path: "logout", component: LoginComponent},

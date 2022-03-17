@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GameDisplayComponent } from './game-display/game-display.component';
 import { GameListComponent } from './game-list-page/game-list-page.component';
 import { GamePageComponent } from './game-page/game-page.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -24,12 +23,12 @@ import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PlacedOrderComponent } from './placed-order/placed-order.component';
 import { OrdersUserComponent } from './orders-user/orders-user.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameDisplayComponent,
     GameListComponent,
     GamePageComponent,
     NavMenuComponent,
@@ -48,6 +47,7 @@ import { OrdersUserComponent } from './orders-user/orders-user.component';
     OrdersComponent,
     PlacedOrderComponent,
     OrdersUserComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,
