@@ -8,9 +8,9 @@
         <ul class="list-group">
             <li class="list-group-item list-group-item-action"
                 *ngFor="let o of user.userOrders let i = index" 
-            >
-               <p>Order ID: {{o.orderID}}</p>              
-               <p>Order Total: {{o.orderPrice}}</p>
+            >                              
+               <p>Order Date: {{o.orderDate}}</p>               
+               <p>Order Total: €{{o.orderPrice}}</p>
             </li>
          </ul>
     </div> 
