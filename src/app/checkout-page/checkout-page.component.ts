@@ -4,9 +4,9 @@ import { tap } from 'rxjs/operators';
 import { Game } from '../dto/Game';
 import { Order } from '../dto/Order';
 import { User } from '../dto/User';
-import { GamesService } from '../games.service';
-import { OrdersService } from '../orders.service';
-import { UsersService } from '../users.service';
+import { GamesService } from '../services/games.service';
+import { OrdersService } from '../services/orders.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-checkout-page',

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from './dto/User';
+import { User } from '../dto/User';
 import { tap } from "rxjs/operators";
 import { AuthService } from './auth.service';
 

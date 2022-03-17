@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Game } from '../dto/Game';
 import { User } from '../dto/User';
-import { GamesService } from '../games.service';
+import { GamesService } from '../services/games.service';
 import { GenresSelectComponent } from '../genres-select/genres-select.component';
-import { UsersService } from '../users.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-game-list-page',

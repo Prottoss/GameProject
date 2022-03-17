@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Game } from '../dto/Game';
-import { GamesService } from '../games.service';
+import { GamesService } from '../services/games.service';
 
 
 @Component({

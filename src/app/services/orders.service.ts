@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Order } from './dto/Order';
+import { Order } from '../dto/Order';
 import { Subject,Observable, BehaviorSubject } from 'rxjs';
 import { GamesService } from './games.service';
 import { UsersService } from './users.service';

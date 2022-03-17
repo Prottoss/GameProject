@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, EventEmitter, Output, NgModule } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Game } from '../dto/Game';
-import { GamesService } from '../games.service';
+import { GamesService } from '../services/games.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { OrdersService } from '../orders.service';
+import { OrdersService } from '../services/orders.service';
 import { Subscription } from 'rxjs';
-import { ShoppingCartService } from '../shopping-cart.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 
 @Component({

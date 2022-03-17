@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from '../dto/User';
-import { UsersService } from '../users.service';
+import { UsersService } from '../services/users.service';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',

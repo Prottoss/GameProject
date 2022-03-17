@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Game } from './dto/Game';
+import { Game } from '../dto/Game';
 import { GamesService } from './games.service';
 
 @Injectable({

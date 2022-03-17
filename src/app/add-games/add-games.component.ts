@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Game } from '../dto/Game';
 import { FormGroup, NgForm } from '@angular/forms';
-import { GamesService } from '../games.service';
+import { GamesService } from '../services/games.service';
 import { GameKey } from '../dto/GameKey';
 
 @Component({
