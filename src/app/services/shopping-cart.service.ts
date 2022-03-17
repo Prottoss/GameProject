@@ -10,8 +10,6 @@ import { GamesService } from './games.service';
 export class ShoppingCartService {
 
   public cartList: any = [];
-  public qty: number = 0;
-  //game: Game = new Game("","","","",0,"");
   public gamesList = new BehaviorSubject<any>([]);
 
   constructor(public gameService:GamesService) { }

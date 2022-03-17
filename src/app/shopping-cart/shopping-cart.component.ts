@@ -19,12 +19,8 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cartService: ShoppingCartService, public gameService: GamesService, public orderService: OrdersService) { }
 
   ngOnInit(): void {
-    this.orderService.getQty().subscribe(res=>{
-      this.maxQty = res;
-    });
     this.cartService.getProducts().subscribe(res=>{
       this.games = res;
-      console.log("res= "+this.games);
       this.finalTotal = this.cartService.getTotalPrice();
     })
   }
