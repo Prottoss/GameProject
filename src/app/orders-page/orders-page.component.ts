@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OrdersPageComponent implements OnInit {
 
-  orderId!: number;
+  orderId!: string;
   orders: Order = new Order("", 0,0, new Date());
   private sub : any;
 
@@ -23,7 +23,7 @@ export class OrdersPageComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.orderId = params['orderID'];
       console.log("OrderId: ", this.orderId);
-      //this.orderService.getOrder(this.orderId).pipe(tap((o)=>{this.orders = o})).subscribe();
+      this.orderService.getOrder(this.orderId).pipe(tap((o)=>{this.orders = o})).subscribe();
    });
   }
 

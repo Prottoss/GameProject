@@ -7,11 +7,10 @@
     <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item list-group-item-action"
-                *ngFor="let o of orders let i = index" 
-                (click)="selected(o)"
-                [class.active]="o==selectedOrder">
-               <p>Order ID: {{o.userOrders[i].orderID}}</p>              
-               <p>Order Total: {{o.userOrders[i].orderPrice}}</p>
+                *ngFor="let o of user.userOrders let i = index" 
+            >
+               <p>Order ID: {{o.orderID}}</p>              
+               <p>Order Total: {{o.orderPrice}}</p>
             </li>
          </ul>
     </div>
