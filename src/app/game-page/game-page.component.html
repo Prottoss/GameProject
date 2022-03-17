@@ -14,13 +14,15 @@
             <h4>In Stock: <b>{{maxQty}}</b></h4>
             <br>
 
-            <div class="form-group">
-                <label for="gameQty">Quantity</label>
+            <!--<div class="form-group">
+                <label>Quantity</label>
                 <br>
-                <input type="number" min=0 max={{maxQty}} value="1" name="gameQty" class="form-control" [(ngModel)]="qty" class="col-1">        
-            </div>
+                <input type="number" min=0 max={{maxQty}} value="1" class="form-control" [(ngModel)]="qty" class="col-1">        
+            </div>-->
             <br>
-            <button class="btn btn-primary" routerLink="checkout" type="submit" (click)="onPlaceOrder(qty)" [disabled]="noStock">{{buttonText}}</button>   
+
+            <button class="btn btn-primary" (click)=addToCart(game)>Add To Cart</button>
+            <!--<button class="btn btn-primary" routerLink="/checkout" type="submit" (click)="onPlaceOrder(qty)" [disabled]="noStock">{{buttonText}}</button>-->
         </div>
     </div>
 </div>

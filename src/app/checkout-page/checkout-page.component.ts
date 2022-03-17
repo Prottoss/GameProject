@@ -35,7 +35,16 @@ export class CheckoutPageComponent implements OnInit
         this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g})).subscribe();
       });
 
-    this.gameQty = this.ordersService.getQty();
+    //this.gameQty = this.ordersService.getQty();
+    // this.cartService.getProducts().subscribe(res=>{
+    //   this.games = res;
+    //   this.finalTotal = this.cartService.getTotalPrice();
+    // })
+    this.ordersService.getQty().subscribe(res=>{
+      this.gameQty = res;
+      console.log("res= "+res);
+      console.log("qty= "+this.gameQty);
+    })
 
     this.usersService.getUser().subscribe((data)=>{this.user = data});
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { ShoppingCartService } from '../shopping-cart.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,9 +9,14 @@ import { AuthService } from '../auth.service';
 })
 export class NavMenuComponent implements OnInit {
  
-  constructor(public auth:AuthService) { }
+  constructor(public auth:AuthService, private cartService: ShoppingCartService) { }
 
+  public totalCartAmount: number = 0;
   ngOnInit(): void {
+    this.cartService.getProducts().subscribe(res=>{
+      this.totalCartAmount = res.length;
+    })
+
   }
 
 }
