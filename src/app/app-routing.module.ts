@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PlacedOrderComponent } from './placed-order/placed-order.component';
+import { OrdersUserComponent } from './orders-user/orders-user.component';
 
 const routes: Routes = [
   {path: "register", component: RegisterComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: "gameinfo/:gameId", component: GamePageComponent},
   {path: "gameinfo/:gameId/checkout", component: CheckoutPageComponent },
   {path: "addGames", component: AddGamesPageComponent},
+  {path: "userOrders", component: OrdersUserComponent},
   {path: "profile", component: CustomerProfilePageComponent},
   {path: "logout", component: LoginComponent},
   {path: "orders", component: OrdersComponent},
