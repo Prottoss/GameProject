@@ -52,6 +52,17 @@ export class GamesService {
     }
   }
 
+  deleteGame(gameId : string)
+  {
+    for(var i = 0; i< this.games.length; i++)
+    {
+      if(this.games[i].gameID == gameId)
+      {
+        this.games.splice(i,1);
+      }
+    }
+  }
+
   getKeysCount(id:String)
   {
     return this.http.get<number>(this.url+"/getStock?gameId="+id);

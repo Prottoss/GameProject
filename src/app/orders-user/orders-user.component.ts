@@ -17,4 +17,10 @@ export class OrdersUserComponent implements OnInit {
     this.usersService.getUser().subscribe((data)=>{this.user = data});
   }
 
+  // selected(order : User){
+  //   console.log("Selected = "+ order)
+  //   this.selectedOrder = order;
+  //   this.userOrder.emit(order);
+  // }
+
 }

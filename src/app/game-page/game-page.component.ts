@@ -16,15 +16,14 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 })
 export class GamePageComponent implements OnInit {
 
-  qty!: number;
+  //qty!: number;
   defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
   game: Game = new Game("","","","",0,"");
   private sub : any;
   noStock = false;
-  buttonText = "Place Order";
-  
+  buttonText = "Add to Cart"; 
   
   constructor(private gameService: GamesService, private orderService:OrdersService, private route: ActivatedRoute, private cartService:ShoppingCartService)
   {
@@ -44,23 +43,23 @@ export class GamePageComponent implements OnInit {
         this.noStock = true;
       };
       console.log("callback, g= ",num);
-    }); 
+    });
   }
 
   ngOnInit(): void {
-    //this.defaultQty;
+    
   }
 
-  onPlaceOrder(value : number)
-  {
-    this.qty = value;
-    this.orderService.setQty(this.qty);
-    console.log(this.qty)
-  }
+  // onPlaceOrder(value : number)
+  // {
+  //   this.qty = value;
+  //   this.orderService.setQty(this.qty);
+  //   console.log(this.qty)
+  // }
 
-  addToCart(g: any)
+  addToCart(game: Game)
   {
-    this.cartService.addToCart(g);
+    this.cartService.addToCart(game);
   }
 
   ngOnDestroy() {

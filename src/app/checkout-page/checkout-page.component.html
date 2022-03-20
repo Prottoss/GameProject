@@ -27,67 +27,20 @@
         <div class="row border-bottom">
             <div class="col"><h3>Product</h3></div>
             <div class="col"><h3>Price</h3></div>
-            <div class="col"><h3>Qty</h3></div>
-            <div class="col"><h3>Total</h3></div>
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="col">{{game.gameName}}</div>
-                <div class="col">{{game.gamePrice}}</div>
-                <div class="col">{{gameQty}}</div>
-                <div class="col">{{gameQty*game.gamePrice}}</div>
+            <div class="row" *ngFor="let item of games; let i = index">
+                <div class="col">{{item.gameName}}</div>
+                <div class="col">{{item.gamePrice}}</div>
             </div>
         </div>
+        <div class="container m-3">
+          <h4>Total: €{{finalTotal}}</h4>
+      </div>
     </div>
 </div>
 <div class="container">
     <div class="container">
         <button class="btn btn-primary" (click)="onBuy()" routerLink="/placedOrder">Buy</button>
     </div>
-    <div id="smart-button-container">
-        <div style="text-align: center;">
-          <div id="paypal-button-container"></div>
-        </div>
-      </div>
-    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=EUR" data-sdk-integration-source="button-factory"></script>
-    <script>
-      function initPayPalButton() {
-        paypal.Buttons({
-          style: {
-            shape: 'rect',
-            color: 'gold',
-            layout: 'vertical',
-            label: 'pay',
-            
-          },
-    
-          createOrder: function(data, actions) {
-            return actions.order.create({
-              purchase_units: [{"amount":{"currency_code":"EUR","value":1}}]
-            });
-          },
-    
-          onApprove: function(data, actions) {
-            return actions.order.capture().then(function(orderData) {
-              
-              // Full available details
-              console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-    
-              // Show a success message within this page, e.g.
-              const element = document.getElementById('paypal-button-container');
-              element.innerHTML = '';
-              element.innerHTML = '<h3>Thank you for your payment!</h3>';
-    
-              // Or go to another URL:  actions.redirect('thank_you.html');
-              
-            });
-          },
-    
-          onError: function(err) {
-            console.log(err);
-          }
-        }).render('#paypal-button-container');
-      }
-      initPayPalButton();
-    </script>
 </div>

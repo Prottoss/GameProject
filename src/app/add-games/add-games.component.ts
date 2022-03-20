@@ -56,4 +56,9 @@ export class AddGamesComponent implements OnInit {
     this.game = new Game("0","","","",0,"");
   }
 
+  deleteGame()
+  {
+    this.gameService.deleteGame(this.game.gameID);
+  }
+
 }

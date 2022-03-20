@@ -11,6 +11,7 @@ export class ShoppingCartService {
 
   public cartList: any = [];
   public gamesList = new BehaviorSubject<any>([]);
+  public game: Game = new Game("","","","",0,"");
 
   constructor(public gameService:GamesService) { }
 
@@ -24,10 +25,11 @@ export class ShoppingCartService {
     this.gamesList.next(game);
   }
 
-  addToCart(game: any)
+  addToCart(game: Game)
   {
     this.cartList.push(game);
     this.gamesList.next(this.cartList);
+    
     this.getTotalPrice();
     console.log(this.cartList);
   }
@@ -35,20 +37,28 @@ export class ShoppingCartService {
   getTotalPrice(): number
   {
     let finalTotal = 0;
-    this.cartList.map((a: any)=>{
-      finalTotal += a.total;
+    this.cartList.map((g: Game)=>{
+      finalTotal += g.gamePrice;
     })
     return finalTotal;
   }
 
-  removeCartItem(product: any)
+  removeCartItem(product: Game)
   {
-    this.cartList.map((a:any, index:any)=>{
-      if(product.id===a.id)
+    // this.cartList.map((a:any, index:any)=>{
+    //   if(product.id===a.id)
+    //   {
+    //     this.cartList.splice(index,1);
+    //   }
+    // })
+
+    for(var i = 0; i< this.cartList.length; i++)
+    {
+      if(this.cartList[i].gameID == product.gameID)
       {
-        this.cartList.splice(index,1);
+        this.cartList.splice(i,1);
       }
-    })
+    }
     this.gamesList.next(this.cartList);
   }
 
