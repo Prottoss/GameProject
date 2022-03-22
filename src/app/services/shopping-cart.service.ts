@@ -9,29 +9,45 @@ import { GamesService } from './games.service';
 })
 export class ShoppingCartService {
 
-  public cartList: any = [];
+  public cartList: Game[] = [];
   public gamesList = new BehaviorSubject<any>([]);
   public game: Game = new Game("","","","",0,"");
+  private inCart = false;
 
   constructor(public gameService:GamesService) { }
 
-  getProducts(){
+  getCart(){
+    this.cartList = JSON.parse(localStorage.getItem("cart")!);
+    this.gamesList.next(this.cartList);
     return this.gamesList.asObservable();
-  }
-
-  setProduct(game: any)
-  {
-    this.cartList.push(game);
-    this.gamesList.next(game);
   }
 
   addToCart(game: Game)
   {
-    this.cartList.push(game);
-    this.gamesList.next(this.cartList);
-    
-    this.getTotalPrice();
-    console.log(this.cartList);
+    this.inCart = false;
+
+    for(let i = 0; i<this.cartList.length;i++)
+    {
+      if(this.cartList[i].gameID==game.gameID)
+      {
+        this.inCart = true;
+      }
+    }
+
+    if(!this.inCart)
+    {
+      this.cartList.push(game);
+      localStorage.setItem("cart",JSON.stringify(this.cartList));
+      this.cartList = JSON.parse(localStorage.getItem("cart")!);
+      this.gamesList.next(this.cartList);   
+      this.getTotalPrice();
+      console.log(this.cartList);
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
   getTotalPrice(): number
@@ -43,15 +59,8 @@ export class ShoppingCartService {
     return finalTotal;
   }
 
-  removeCartItem(product: Game)
+  removeFromCart(product: Game)
   {
-    // this.cartList.map((a:any, index:any)=>{
-    //   if(product.id===a.id)
-    //   {
-    //     this.cartList.splice(index,1);
-    //   }
-    // })
-
     for(var i = 0; i< this.cartList.length; i++)
     {
       if(this.cartList[i].gameID == product.gameID)
@@ -59,6 +68,7 @@ export class ShoppingCartService {
         this.cartList.splice(i,1);
       }
     }
+    localStorage.setItem("cart",JSON.stringify(this.cartList));
     this.gamesList.next(this.cartList);
   }
 
@@ -66,5 +76,6 @@ export class ShoppingCartService {
   {
     this.cartList = []
     this.gamesList.next(this.cartList);
+    localStorage.setItem("cart",JSON.stringify(this.cartList));
   }
 }

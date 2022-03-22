@@ -48,7 +48,7 @@ export class CheckoutPageComponent implements OnInit
 
     this.usersService.getUser().subscribe((data)=>{this.user = data});
 
-    this.cartService.getProducts().subscribe(res=>{
+    this.cartService.getCart().subscribe(res=>{
       this.games = res;
       this.finalTotal = this.cartService.getTotalPrice();
     })

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {tap} from 'rxjs/operators';
+import { ShoppingCartService } from './shopping-cart.service';
 
 
 @Injectable({
@@ -9,9 +10,9 @@ import {tap} from 'rxjs/operators';
 export class AuthService {
 
   static url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
+  cart: any [] = [];
 
-
-  constructor(private http: HttpClient) { };
+  constructor(private http: HttpClient, private cartService: ShoppingCartService) { }
 
 
   login(username:string, password:string) 
@@ -28,6 +29,7 @@ export class AuthService {
         localStorage.setItem("username",username);
         localStorage.setItem("loggedInUser",JSON.stringify(res['data']['loggedInUser']));
         localStorage.setItem('refresh_token',res['data']['refresh_token']);
+        localStorage.setItem("cart",JSON.stringify(this.cart));
       }else{
         alert("Login Failed: " + res['Msg']);
       }
@@ -40,6 +42,8 @@ export class AuthService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('loggedInUser');
+    this.cartService.emptyCart();
+    localStorage.removeItem("cart");
   }
 
   isLoggedIn() : boolean{

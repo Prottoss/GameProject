@@ -20,7 +20,7 @@ export class GameComponent implements OnInit {
     
   }
   ngOnInit(): void {
-    this.gameService.getGames().subscribe( (data)=>{this.games = data;} );
+    this.gameService.getAllGames().subscribe( (data)=>{this.games = data;} );
   }
 
   selected(game: Game){
