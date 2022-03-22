@@ -7,6 +7,7 @@ export class Game{
     gamePrice: number;
     gamePic: string;
     gameKeys: GameKey[];
+    gameHidden : boolean=false;
 
 
     constructor(gameId : string, gameName : string, gameDescription : string, gameGenre: string, gamePrice: number, gamePic: string){
