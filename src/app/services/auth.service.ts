@@ -26,6 +26,7 @@ export class AuthService {
         console.log("Login Successful id_token =",token);
         localStorage.setItem('id_token', token);
         localStorage.setItem("username",username);
+        localStorage.setItem("loggedInUser",JSON.stringify(res['data']['loggedInUser']));
         localStorage.setItem('refresh_token',res['data']['refresh_token']);
       }else{
         alert("Login Failed: " + res['Msg']);
@@ -38,6 +39,7 @@ export class AuthService {
     localStorage.removeItem("username");
     localStorage.removeItem('id_token');
     localStorage.removeItem('refresh_token');
+    localStorage.removeItem('loggedInUser');
   }
 
   isLoggedIn() : boolean{
