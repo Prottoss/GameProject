@@ -11,10 +11,12 @@ export class OrdersUserComponent implements OnInit {
 
   user: User = new User("","","","","",new Date(),"","",new Date());
 
-  constructor(public usersService:UsersService) { }
+  constructor(public usersService:UsersService) 
+  {
+    this.usersService.getUser().subscribe((data)=>{this.user = data});
+  }
 
   ngOnInit(): void {
-    this.usersService.getUser().subscribe((data)=>{this.user = data});
   }
 
   // selected(order : User){

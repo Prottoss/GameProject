@@ -26,7 +26,7 @@ export class GamePageComponent implements OnInit {
   buttonText = "Add to Cart"; 
   result = false;
   
-  constructor(private gameService: GamesService, private orderService:OrdersService, private route: ActivatedRoute, private cartService:ShoppingCartService)
+  constructor(private gameService: GamesService, private route: ActivatedRoute, private cartService:ShoppingCartService)
   {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];

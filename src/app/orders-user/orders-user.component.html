@@ -5,21 +5,16 @@
        </h1>
     </div>
 </div>
-<ng-container *ngFor="let o of user.userOrders let i = index">         
-<div class="container col mx-auto">                     
-    <div class="card bg-dark">
-    </div>
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-action" >
-               <p>Order Date: {{o.orderDate}}</p>               
-               <p>Order Total: €{{o.orderPrice}}</p>
-               <p>Order Key: {{o.orderItem[i].orderKey}}</p>
-            </li>
-         </ul>
-         <a routerLink="/orders/{{o.orderID}}" class="stretched-link"></a>
-        
-        </div> 
-
-</div> 
+<ng-container *ngFor="let o of user.userOrders let i = index">
+    <div class="container">
+        <div class="card bg-dark col-6 mx-auto">
+            <div class="card-body">
+                <p>Order ID: {{o.orderID}}</p>
+                <p>Order Date: {{o.orderDate}}</p>               
+                <p>Order Total: €{{o.orderPrice}}</p>
+                <a routerLink="/userOrders/{{o.orderID}}" class="stretched-link"></a>
+            </div>       
+        </div>
+    </div> 
+    <br>         
 </ng-container>
