@@ -17,4 +17,4 @@ export class Order
         this.orderPrice = oPrice;
         this.orderItem = [];
     }
-}
+} 
