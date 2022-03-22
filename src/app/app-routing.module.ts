@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: "profile", component: CustomerProfilePageComponent},
   {path: "logout", component: LoginComponent},
   {path: "orders", component: OrdersComponent},
-  {path: "orders/:orderID", component: OrdersPageComponent},
+  {path: "order/:orderID", component: OrdersPageComponent},
   {path: "placedOrder", component: PlacedOrderComponent},
   {path: "", component: LoginComponent}
 ];
