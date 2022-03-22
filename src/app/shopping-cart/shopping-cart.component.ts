@@ -1,3 +1,5 @@
+import { JSDocComment } from '@angular/compiler';
+import { LIFECYCLE_HOOKS_VALUES } from '@angular/compiler/src/lifecycle_reflector';
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../dto/Game';
 import { GameComponent } from '../game/game.component';
@@ -16,18 +18,21 @@ export class ShoppingCartComponent implements OnInit {
   public finalTotal: number = 0;
   public maxQty: number = 0;
 
-  constructor(private cartService: ShoppingCartService, public gameService: GamesService, public orderService: OrdersService) { }
-
-  ngOnInit(): void {
-    this.cartService.getProducts().subscribe(res=>{
+  constructor(private cartService: ShoppingCartService, public gameService: GamesService, public orderService: OrdersService) 
+  { 
+    this.cartService.getCart().subscribe(res=>{
       this.games = res;
       this.finalTotal = this.cartService.getTotalPrice();
-    })
+    })  
+  }  
+
+  ngOnInit(): void {
+    
   }
 
   removeItem(item: any)
   {
-    this.cartService.removeCartItem(item);
+    this.cartService.removeFromCart(item);
   }
 
   emptyCart()

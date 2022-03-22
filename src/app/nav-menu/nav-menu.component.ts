@@ -9,11 +9,16 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 })
 export class NavMenuComponent implements OnInit {
  
-  constructor(public auth:AuthService, private cartService: ShoppingCartService) { }
-
   public totalCartAmount: number = 0;
+
+  constructor(public auth:AuthService, private cartService: ShoppingCartService) 
+  {
+
+  }
+
   ngOnInit(): void {
-    this.cartService.getProducts().subscribe(res=>{
+    this.cartService.getCart().subscribe(res=>
+    {
       this.totalCartAmount = res.length;
     })
 
