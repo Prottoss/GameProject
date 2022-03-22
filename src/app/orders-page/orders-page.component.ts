@@ -16,15 +16,15 @@ export class OrdersPageComponent implements OnInit {
   private sub : any;
 
   constructor(private orderService: OrdersService, private route: ActivatedRoute) { 
-
-  }
-
-  ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
       this.orderId = params['orderID'];
       console.log("OrderId: ", this.orderId);
       this.orderService.getOrder(this.orderId).pipe(tap((o)=>{this.orders = o})).subscribe();
    });
+  }
+
+  ngOnInit(): void {
+
   }
 
   
