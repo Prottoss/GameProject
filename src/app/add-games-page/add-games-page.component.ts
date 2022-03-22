@@ -15,7 +15,7 @@ export class AddGamesPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.userService.getUsers)
+    this.userService.roleGuard("ADMIN");
   }
 
   getGame(Game : Game){
