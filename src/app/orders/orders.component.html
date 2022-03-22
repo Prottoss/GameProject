@@ -12,6 +12,7 @@
                 [class.active]="o==selectedOrder">
                <p>Order ID: {{o.userOrders[i].orderID}}</p>              
                <p>Order Total: {{o.userOrders[i].orderPrice}}</p>
+               <p>Order Key: {{o.userOrders[i].orderItem[i].orderKey}}</p>
             </li>
          </ul>
     </div>

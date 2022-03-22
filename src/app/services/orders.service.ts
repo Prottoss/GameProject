@@ -53,6 +53,6 @@ export class OrdersService {
 
    getOrder(id:string)
    {
-     return this.http.get<Order>(this.url+"/getOrders?orderID="+id);
+     return this.http.get<Order>(this.url+"/getOrder?orderID="+id);
    } 
 }
