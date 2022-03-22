@@ -14,6 +14,7 @@
             <li class="list-group-item list-group-item-action" >
                <p>Order Date: {{o.orderDate}}</p>               
                <p>Order Total: €{{o.orderPrice}}</p>
+               <p>Order Key: {{o.orderItem[i].orderKey}}</p>
             </li>
          </ul>
          <a routerLink="/orders/{{o.orderID}}" class="stretched-link"></a>
@@ -22,27 +23,3 @@
 
 </div> 
 </ng-container>
-<!--
-<div class="album py-5">
-    <div class="container">
-        <h1 class="display-1 justify-content-center">
-            View Orders
-         </h1>
-        <div class="row row-cols-sm-4 g-3">
-            <ng-container *ngFor="let o of user.userOrders let i = index">                              
-                <div class="col-sm">
-                    <div class="card shadow bg-dark">                       
-                        <div class="card-body">
-                            <h5 class="card-title">€{{o.orderPrice}}</h5>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="card-text">Order Date:{{o.orderDate}}</p>                                
-                            </div>
-                            
-                            <a routerLink="/orders/{{o.orderID}}" class="stretched-link"></a>
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-        </div>
-    </div>
-</div>-->
