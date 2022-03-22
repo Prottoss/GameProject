@@ -12,6 +12,7 @@ import { PlacedOrderComponent } from './placed-order/placed-order.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrdersUserComponent } from './orders-user/orders-user.component';
 import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
+import { OrdersPageComponent } from './orders-page/orders-page.component';
 
 const routes: Routes = [
   //{path: "", redirectTo:"games", pathMatch: "full"},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: "profile", component: CustomerProfilePageComponent},
   {path: "logout", component: LoginComponent},
   {path: "orders", component: OrdersComponent},
+  {path: "orders/:orderID", component: OrdersPageComponent},
   {path: "placedOrder", component: PlacedOrderComponent},
   {path: "", component: LoginComponent}
 ];

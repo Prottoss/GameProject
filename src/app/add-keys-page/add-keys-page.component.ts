@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../dto/Game';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-add-keys-page',
@@ -10,10 +11,10 @@ export class AddKeysPageComponent implements OnInit {
 
   game : Game = Game.generateEmptyGame();
 
-  constructor() { }
+  constructor(private userService : UsersService) { }
 
   ngOnInit(): void {
-
+    this.userService.roleGuard("ADMIN");
   }
 
   getGame(Game : Game){
