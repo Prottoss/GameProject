@@ -24,6 +24,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { PlacedOrderComponent } from './placed-order/placed-order.component';
 import { OrdersUserComponent } from './orders-user/orders-user.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { AddKeysComponent } from './add-keys/add-keys.component';
+import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     PlacedOrderComponent,
     OrdersUserComponent,
     ShoppingCartComponent,
+    AddKeysComponent,
+    AddKeysPageComponent,
   ],
   imports: [
     BrowserModule,

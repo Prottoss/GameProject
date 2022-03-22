@@ -19,4 +19,7 @@ export class Game{
         this.gameKeys = [];
     }
 
+    static generateEmptyGame(){
+        return new Game("", "", "", "", 0, "");
+    }
 }

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Game } from '../dto/Game';
-import { GenresService } from '../genres.service';
+import { GenresService } from '../services/genres.service';
 
 @Component({
   selector: 'app-genres-select',

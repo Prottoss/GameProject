@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Game } from './dto/Game';
+import { Game } from '../dto/Game';
 import { tap } from "rxjs/operators";
 import { OrdersService } from './orders.service';
 
@@ -49,6 +49,17 @@ export class GamesService {
       {
         console.log("callback, g= ",g);
       });
+    }
+  }
+
+  deleteGame(gameId : string)
+  {
+    for(var i = 0; i< this.games.length; i++)
+    {
+      if(this.games[i].gameID == gameId)
+      {
+        this.games.splice(i,1);
+      }
     }
   }
 

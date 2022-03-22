@@ -1,14 +1,16 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h1 class="display-1 justify-content-center">
+          View Orders
+       </h1>
+    </div>
+</div>
 <div class="container col mx-auto">
     <div class="card bg-dark">
-        <div class="card-header">
-            <h3>Order List</h3>           
-        </div>
     </div>
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item list-group-item-action"
-                *ngFor="let o of user.userOrders let i = index" 
-            >                              
+            <li class="list-group-item list-group-item-action" *ngFor="let o of user.userOrders let i = index">                              
                <p>Order Date: {{o.orderDate}}</p>               
                <p>Order Total: €{{o.orderPrice}}</p>
             </li>

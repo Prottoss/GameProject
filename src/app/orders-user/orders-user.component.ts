@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from '../dto/User';
-import { UsersService } from '../users.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-orders-user',
@@ -16,5 +16,11 @@ export class OrdersUserComponent implements OnInit {
   ngOnInit(): void {
     this.usersService.getUser().subscribe((data)=>{this.user = data});
   }
+
+  // selected(order : User){
+  //   console.log("Selected = "+ order)
+  //   this.selectedOrder = order;
+  //   this.userOrder.emit(order);
+  // }
 
 }

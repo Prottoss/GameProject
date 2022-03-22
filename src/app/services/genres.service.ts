@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Genre } from './dto/Genre';
+import { Genre } from '../dto/Genre';
 
 @Injectable({
   providedIn: 'root'

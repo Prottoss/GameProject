@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Order } from '../dto/Order';
-import { OrdersService } from '../orders.service';
+import { OrdersService } from '../services/orders.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

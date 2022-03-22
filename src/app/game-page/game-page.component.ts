@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, EventEmitter, Output, NgModule } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Game } from '../dto/Game';
-import { GamesService } from '../games.service';
+import { GamesService } from '../services/games.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { OrdersService } from '../orders.service';
+import { OrdersService } from '../services/orders.service';
 import { Subscription } from 'rxjs';
-import { ShoppingCartService } from '../shopping-cart.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 
 @Component({
@@ -16,15 +16,14 @@ import { ShoppingCartService } from '../shopping-cart.service';
 })
 export class GamePageComponent implements OnInit {
 
-  qty!: number;
+  //qty!: number;
   defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
   game: Game = new Game("","","","",0,"");
   private sub : any;
   noStock = false;
-  buttonText = "Place Order";
-  
+  buttonText = "Add to Cart"; 
   
   constructor(private gameService: GamesService, private orderService:OrdersService, private route: ActivatedRoute, private cartService:ShoppingCartService)
   {
@@ -44,23 +43,23 @@ export class GamePageComponent implements OnInit {
         this.noStock = true;
       };
       console.log("callback, g= ",num);
-    }); 
+    });
   }
 
   ngOnInit(): void {
-    //this.defaultQty;
+    
   }
 
-  onPlaceOrder(value : number)
-  {
-    this.qty = value;
-    this.orderService.setQty(this.qty);
-    console.log(this.qty)
-  }
+  // onPlaceOrder(value : number)
+  // {
+  //   this.qty = value;
+  //   this.orderService.setQty(this.qty);
+  //   console.log(this.qty)
+  // }
 
-  addToCart(g: any)
+  addToCart(game: Game)
   {
-    this.cartService.addToCart(g);
+    this.cartService.addToCart(game);
   }
 
   ngOnDestroy() {
