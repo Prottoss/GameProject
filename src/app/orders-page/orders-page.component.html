@@ -8,12 +8,18 @@
 </div>
 <div class="container">
     <div class="card bg-dark col-6 mx-auto">
-        <div class="card-body">
-            put stuff here
-                <!--<h3>Oder ID: <b>{{user.username}}</b></h3>
-                <h3>Oder Date: {{user.userFirstname}}</h3>
-                <h3>Order Price: {{user.userSurname}}</h3>
-                <h3>Order Details: {{user.userDOB}}</h3>-->
+        <div class="card-body">          
+                <h3>Oder ID: <b>{{orders.orderID}}</b></h3>
+                <h3>Oder Date: {{orders.orderDate}}</h3>
+                <h3>Order Price: {{orders.orderPrice}}</h3>
+                <div class="ng-container" *ngFor="let k of orders.orderItem let i = index" >
+                    <h3>Game: {{k.orderGame.gameName}}</h3> 
+                    <div class="col-md-3 g-5">
+                        <img class="d-block w-100" src="{{k.orderGame.gamePic}}" alt="game pic">
+                    </div>
+                    <h3>Order Key: {{k.orderKey}}</h3>   
+                   </div>               
         </div>       
     </div>
 </div>
+

@@ -10,14 +10,18 @@ export class OrdersComponent implements OnInit {
 
   @Output() userOrder: EventEmitter<User> = new EventEmitter<User>();
 
-  orders : User[] =[];
+  users : User[] =[];
   selectedOrder : User = new User("","","","","",new Date(),"","",new Date());
   searchText : string = "";
 
   constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe( (data)=>{this.orders = data;} );
+    this.userService.getUsers().subscribe( (data)=>{
+      this.users = data;
+      console.log(data[0].username);
+      console.log(data[0].userOrders);
+    } );
   }
 
   selected(order : User){

@@ -1,4 +1,4 @@
-<div class="container col mx-auto">
+<!--<div class="container col mx-auto">
     <div class="card bg-dark">
         <div class="card-header">
             <h3>Order List</h3>           
@@ -7,13 +7,39 @@
     <div class="card-body">
         <ul class="list-group">
             <li class="list-group-item list-group-item-action"
-                *ngFor="let o of orders let i = index" 
+                *ngFor="let o of orders.slice().reverse() let i = index" 
                 (click)="selected(o)"
                 [class.active]="o==selectedOrder">
                <p>Order ID: {{o.userOrders[i].orderID}}</p>              
-               <p>Order Total: {{o.userOrders[i].orderPrice}}</p>
-               <p>Order Key: {{o.userOrders[i].orderItem[i].orderKey}}</p>
+               <p>Order Total: {{o.userOrders[i].orderPrice}}</p>  
+               <a routerLink="/userOrders/{{o.userOrders[i].orderID}}" class="stretched-link"></a>             
             </li>
          </ul>
     </div>
-</div>
+</div>-->
+<div class="container">
+    <div class="py-5 text-center">
+        <h1 class="display-1 justify-content-center">
+          View Orders
+       </h1>
+    </div> 
+</div>  
+<ng-container *ngFor="let u of users let i = index">
+    <div class="container">
+        <div class="card bg-dark col-6 mx-auto">
+            <div class="card-body">
+                <p>Order ID: {{u.username}}</p>                            
+            </div>                
+        </div>
+        
+            <div class="ng-container" *ngFor="let o of u.userOrders let i = index">
+                <div class="card bg-dark">
+                    <p>Order: {{o.orderID}}</p>
+                <a routerLink="/userOrders/{{o.orderID}}" class="stretched-link"></a>
+                <br>
+                </div>                
+            </div>
+          
+    </div> 
+    <br>         
+</ng-container>
