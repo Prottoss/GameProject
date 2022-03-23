@@ -13,11 +13,12 @@
                 <h3>Oder Date: {{orders.orderDate}}</h3>
                 <h3>Order Price: {{orders.orderPrice}}</h3>
                 <div class="ng-container" *ngFor="let k of orders.orderItem let i = index" >
-                    <h3>Game: {{k.orderGame.gameName}}</h3> 
                     <div class="col-md-3 g-5">
                         <img class="d-block w-100" src="{{k.orderGame.gamePic}}" alt="game pic">
                     </div>
-                    <h3>Order Key: {{k.orderKey}}</h3>   
+                    <h3>Name: {{k.orderGame.gameName}}</h3>             
+                    <h3>Activation Key: {{k.orderKey}}</h3>   
+                    <br>
                    </div>               
         </div>       
     </div>
