@@ -17,6 +17,7 @@ export class OrdersComponent implements OnInit {
   constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
+    this.userService.roleGuard("ADMIN");
     this.userService.getUsers().subscribe( (data)=>{
       this.users = data;
       console.log(data[0].username);
