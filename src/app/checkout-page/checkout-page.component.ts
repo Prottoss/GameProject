@@ -43,7 +43,7 @@ export class CheckoutPageComponent implements OnInit
         shape: 'rect',
         color: 'gold',
         layout: 'horizontal',
-        label: 'pay',   
+        label: 'pay',    
       },
 
       createOrder: (data: any, actions: any) => {
