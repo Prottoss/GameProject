@@ -26,6 +26,7 @@ import { OrdersUserComponent } from './orders-user/orders-user.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AddKeysComponent } from './add-keys/add-keys.component';
 import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
+import { PriceRangePipe } from './price-range.pipe';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
     ShoppingCartComponent,
     AddKeysComponent,
     AddKeysPageComponent,
+    PriceRangePipe,
   ],
   imports: [
     BrowserModule,
