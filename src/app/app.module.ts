@@ -27,6 +27,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AddKeysComponent } from './add-keys/add-keys.component';
 import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
 import { SearchFilterPipe } from './search-filter.pipe';
+import { PriceRangePipe } from './price-range.pipe';
 
 
 @NgModule({
@@ -53,7 +54,11 @@ import { SearchFilterPipe } from './search-filter.pipe';
     ShoppingCartComponent,
     AddKeysComponent,
     AddKeysPageComponent,
+<<<<<<< HEAD
     SearchFilterPipe,
+=======
+    PriceRangePipe,
+>>>>>>> 711832ab7e2bc9f121e918549a33f717597b12b3
   ],
   imports: [
     BrowserModule,

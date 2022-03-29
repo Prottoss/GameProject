@@ -12,6 +12,11 @@
                   <option value="Survival">Survival</option>
               </select>
             </div>
+            <div class='range-slider'>
+                <p style="text-align: center;">€{{rangeMin}} - €{{rangeMax}}</p>
+                <input type="range" min="0" max="200" step="1" [(ngModel)]="rangeMin" (ngModelChange)="onPriceRangeChanged($event,true)">
+                <input type="range" min="0" max="200" step="1" [(ngModel)]="rangeMax" (ngModelChange)="onPriceRangeChanged($event,false)">
+            </div>
         </div>
     </div>
 </nav>
