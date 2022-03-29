@@ -10,8 +10,11 @@ import { GenresService } from '../services/genres.service';
 export class GenresSelectComponent implements OnInit {
 
   @Output() chosenGenreEvent = new EventEmitter<string>();
+  @Output() nameTextEvent = new EventEmitter<string>();
   @Output() rangeChangeEvent = new EventEmitter<number[]>();
+
   chosenGenre = "";
+  nameText = "";
   rangeMin : number = 0;
   rangeMax : number = 200;
 
@@ -19,6 +22,7 @@ export class GenresSelectComponent implements OnInit {
 
   ngOnInit(): void {
     this.chosenGenreEvent.emit(this.chosenGenre);
+    //this.nameTextEvent.emit(this.nameText);
     
   }
 
@@ -34,6 +38,12 @@ export class GenresSelectComponent implements OnInit {
       this.rangeMin = this.rangeMax;
     }
     this.rangeChangeEvent.emit([this.rangeMin,this.rangeMax]);
+  }
+
+  onNameSearch()
+  {
+    //this.nameText = (<HTMLInputElement>nameTextEvent.target).value;
+    this.nameTextEvent.emit(this.nameText);
   }
 
 

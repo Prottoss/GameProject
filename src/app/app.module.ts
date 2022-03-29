@@ -54,11 +54,8 @@ import { PriceRangePipe } from './price-range.pipe';
     ShoppingCartComponent,
     AddKeysComponent,
     AddKeysPageComponent,
-<<<<<<< HEAD
     SearchFilterPipe,
-=======
     PriceRangePipe,
->>>>>>> 711832ab7e2bc9f121e918549a33f717597b12b3
   ],
   imports: [
     BrowserModule,

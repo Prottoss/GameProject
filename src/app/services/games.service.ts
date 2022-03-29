@@ -10,7 +10,6 @@ import { OrdersService } from './orders.service';
 export class GamesService {
 
   games : Game[]=[];
-  nameText!:string;
 
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
 
@@ -72,16 +71,5 @@ export class GamesService {
   getKeysCount(id:String)
   {
     return this.http.get<number>(this.url+"/getStock?gameId="+id);
-  }
-
-
-  getGameName(nameText)
-  {
-
-  }
-
-  setGameName()
-  {
-
   }
 }
