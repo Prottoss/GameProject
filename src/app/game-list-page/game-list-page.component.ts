@@ -12,6 +12,7 @@ export class GameListComponent implements OnInit {
 
   games: Game[] = [];
   chosenGenre = "";
+  nameText!: string;
 
   constructor( public gamesService: GamesService, public genresComp: GenresSelectComponent) { }
 

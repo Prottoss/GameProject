@@ -4,7 +4,7 @@
 <div class="album py-5">
     <div class="container">
         <div class="row row-cols-sm-4 g-3">
-            <ng-container *ngFor="let g of games| genreFilter:this.chosenGenre; let i = index">
+            <ng-container *ngFor="let g of games | genreFilter:this.chosenGenre |searchFilter:this.nameText; let i = index">
                 <div class="col-sm">
                     <div class="card shadow bg-dark">
                         <img class="card-img-top" src={{g.gamePic}} alt="game img">

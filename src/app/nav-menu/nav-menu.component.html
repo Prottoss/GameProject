@@ -2,7 +2,7 @@
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <div *ngIf="!userService.checkLoggedInUserIs('ADMIN')" class="form-group">
-                <input type="text" class="form-control form-control-dark" placeholder="Search...">
+                <input type="text" [(ngModel)]="nameText" class="form-control form-control-dark" placeholder="Search...">
             </div>
 
 

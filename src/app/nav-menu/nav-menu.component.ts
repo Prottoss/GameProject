@@ -11,6 +11,7 @@ import { UsersService } from '../services/users.service';
 export class NavMenuComponent implements OnInit {
 
   public totalCartAmount: number = 0;
+  nameText!: string;
 
   constructor(public auth:AuthService, private cartService: ShoppingCartService,public userService : UsersService) 
   {
@@ -22,7 +23,5 @@ export class NavMenuComponent implements OnInit {
     {
       this.totalCartAmount = res.length;
     })
-
   }
-
 }
