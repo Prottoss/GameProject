@@ -4,23 +4,29 @@
             Order Details
         </h1>
     </div>
- 
 </div>
 <div class="container">
     <div class="card bg-dark col-6 mx-auto">
         <div class="card-body">          
-                <h3>Oder ID: <b>{{orders.orderID}}</b></h3>
-                <h3>Oder Date: {{orders.orderDate}}</h3>
-                <h3>Order Price: {{orders.orderPrice}}</h3>
-                <div class="ng-container" *ngFor="let k of orders.orderItem let i = index" >
-                    <div class="col-md-3 g-5">
-                        <img class="d-block w-100" src="{{k.orderGame.gamePic}}" alt="game pic">
-                    </div>
-                    <h3>Name: {{k.orderGame.gameName}}</h3>             
-                    <h3>Activation Key: {{k.orderKey}}</h3>   
-                    <br>
-                   </div>               
-        </div>       
+            <p>Oder ID: {{orders.orderID}}</p>
+            <p>Oder Date: {{orders.orderDate}}</p>
+            <h6>Order Price: € {{orders.orderPrice}}</h6>
+        </div>
     </div>
+    <br>
+    <div class="card bg-dark col-6 mx-auto">
+        <div class=" card-body row" *ngFor="let k of orders.orderItem let i = index">
+            <div class="col-md-3 g-3">
+                <img class="d-block w-100" src="{{k.orderGame.gamePic}}" alt="game pic">
+            </div>
+            <div class="col-6 g-1">
+                <br>
+                <p>Name: {{k.orderGame.gameName}}</p>             
+                Activation Key:
+                <p>{{k.orderKey}}</p>   
+            </div>
+        </div>  
+    </div>     
 </div>
+
 

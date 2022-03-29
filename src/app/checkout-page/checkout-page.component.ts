@@ -54,7 +54,7 @@ export class CheckoutPageComponent implements OnInit
 
       onApprove: (data: any, actions: any) => {
         return actions.order.capture().then((orderData: any) =>{
-          alert("Transaction Complete!!!!!!!");
+          //alert("Transaction Complete!!!!!!!");
 
           for(let key of this.games)
           {

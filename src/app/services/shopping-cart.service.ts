@@ -55,6 +55,7 @@ export class ShoppingCartService {
     let finalTotal = 0;
     this.cartList.map((g: Game)=>{
       finalTotal += g.gamePrice;
+      finalTotal = Math.round((finalTotal + Number.EPSILON) * 100) / 100;
     })
     return finalTotal;
   }
