@@ -1,12 +1,6 @@
 <nav *ngIf="auth.isLoggedIn()" class="py-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <div *ngIf="!userService.checkLoggedInUserIs('ADMIN')" class="form-group">
-                <input type="text" class="form-control form-control-dark" placeholder="Search...">
-            </div>
-
-
-
             <ul *ngIf="!userService.checkLoggedInUserIs('ADMIN')" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li class="nav-item">
                     <a class="nav-link text-white mr-3" routerLink="games">Games</a>

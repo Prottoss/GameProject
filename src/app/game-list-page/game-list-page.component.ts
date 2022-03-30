@@ -12,6 +12,9 @@ export class GameListComponent implements OnInit {
 
   games: Game[] = [];
   chosenGenre = "";
+  nameText = "";
+  priceRangeMin : number = 0;
+  priceRangeMax : number = 200;
 
   constructor( public gamesService: GamesService, public genresComp: GenresSelectComponent) { }
 
