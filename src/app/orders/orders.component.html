@@ -6,42 +6,39 @@
     </div> 
 </div>  
 
-<ng-container *ngFor="let u of users let i = index">
-    
-    <div class="container">     
-        <div class="card bg-dark col-6 mx-auto">
-            <div class="card-body" 
-            (click)="selected(u)"
-            [class.active]="u==selectedUser" >
-            <p>User: {{u.username}}</p>                            
-            </div>                
-        </div>
-        <br>
-
-
-
-     
-        <div class="ng-container" *ngFor="let o of selectedUser.userOrders let i = index">
-            <div class="card bg-dark  col-6 mx-auto">
-                <div class="card-body">
-                    <p>Order ID: {{o.orderID}}</p>
-                    <p>Order Date: {{o.orderDate}}</p>
-                <a routerLink="/userOrders/{{o.orderID}}" class="stretched-link"></a>
-                </div>
+<div class="row justify-content-center">
+    <div class="col-3">
+        <div class="card bg-dark">
+            <div class="card-header">
+                <h3>User List</h3>  
             </div>
-            <br>                
-        </div>     
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action"
+                    *ngFor="let u of users let i = index" 
+                    (click)="selected(u)"
+                    [class.active]="u==selectedUser">
+                    {{u.username}}
+                </li>
+             </ul>
+        </div>
     </div>
-    <br>   
-    
-    
 
-
-</ng-container>
-
-
-<!--<div class="container">
-    <div class="row">
-        
+    <div class="col-3">
+        <div class="card bg-dark">
+            <div class="card-header">
+                <h3>Order List</h3>  
+            </div>
+        </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action" *ngFor="let o of selectedUser.userOrders let i = index">
+                        <span>Order ID: {{o.orderID}}</span><br>
+                        <span>Order Date: {{o.orderDate |  date:'dd/MM/yyyy'}}</span>
+                        <a routerLink="/userOrders/{{o.orderID}}" class="stretched-link"></a>
+                    </li>
+                </ul>
+            </div>                 
     </div>
-</div>-->
+</div>

@@ -30,9 +30,9 @@ export class OrdersComponent implements OnInit {
   }
 
   selected(user : User){
-    console.log("Selected = "+ user.userOrders)
+    console.log("Selected = "+user.userOrders)
     this.selectedUser = user;
-    this.userOrder.emit(user);
+    //this.userOrder.emit(user);
   }
 
 }

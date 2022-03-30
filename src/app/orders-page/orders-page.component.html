@@ -8,8 +8,8 @@
 <div class="container">
     <div class="card bg-dark col-6 mx-auto">
         <div class="card-body">          
-            <p>Oder ID: {{orders.orderID}}</p>
-            <p>Oder Date: {{orders.orderDate}}</p>
+            <span>Oder ID: {{orders.orderID}}</span><br>
+            <span>Oder Date: {{orders.orderDate |  date:'dd/MM/yyyy - HH:mm'}}</span><br>
             <h6>Order Price: € {{orders.orderPrice}}</h6>
         </div>
     </div>
@@ -23,7 +23,7 @@
                 <br>
                 <p>Name: {{k.orderGame.gameName}}</p>             
                 Activation Key:
-                <p>{{k.orderKey}}</p>   
+                <h6>{{k.orderKey}}</h6>   
             </div>
         </div>  
     </div>     
