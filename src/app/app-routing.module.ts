@@ -13,6 +13,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrdersUserComponent } from './orders-user/orders-user.component';
 import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
+import { AdminUserPageComponent } from './admin-user-page/admin-user-page.component';
 
 const routes: Routes = [
   //{path: "", redirectTo:"games", pathMatch: "full"},
@@ -24,10 +25,12 @@ const routes: Routes = [
   {path: "addGames", component: AddGamesPageComponent},
   {path: "addKeys", component: AddKeysPageComponent},
   {path: "userOrders", component: OrdersUserComponent},
+  {path: "adminOrders", component: AdminUserPageComponent},
   {path: "profile", component: CustomerProfilePageComponent},
   {path: "logout", component: LoginComponent},
   {path: "orders", component: OrdersComponent},
   {path: "userOrders/:orderId", component: OrdersPageComponent},
+  {path: "adminOrders/:userID", component: OrdersComponent},
   {path: "placedOrder", component: PlacedOrderComponent},
   {path: "", component: LoginComponent}
 ];

@@ -5,15 +5,23 @@
        </h1>
     </div> 
 </div>  
+
 <ng-container *ngFor="let u of users let i = index">
-    <div class="container">
+    
+    <div class="container">     
         <div class="card bg-dark col-6 mx-auto">
-            <div class="card-body">
-                <p>User: {{u.username}}</p>                            
+            <div class="card-body" 
+            (click)="selected(u)"
+            [class.active]="u==selectedUser" >
+            <p>User: {{u.username}}</p>                            
             </div>                
         </div>
         <br>
-        <div class="ng-container" *ngFor="let o of u.userOrders let i = index">
+
+
+
+     
+        <div class="ng-container" *ngFor="let o of selectedUser.userOrders let i = index">
             <div class="card bg-dark  col-6 mx-auto">
                 <div class="card-body">
                     <p>Order ID: {{o.orderID}}</p>
@@ -23,6 +31,17 @@
             </div>
             <br>                
         </div>     
-    </div> 
-    <br>         
+    </div>
+    <br>   
+    
+    
+
+
 </ng-container>
+
+
+<!--<div class="container">
+    <div class="row">
+        
+    </div>
+</div>-->

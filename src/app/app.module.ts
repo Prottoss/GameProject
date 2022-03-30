@@ -26,6 +26,8 @@ import { OrdersUserComponent } from './orders-user/orders-user.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AddKeysComponent } from './add-keys/add-keys.component';
 import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
+import { UserComponent } from './user/user.component';
+import { AdminUserPageComponent } from './admin-user-page/admin-user-page.component';
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
     ShoppingCartComponent,
     AddKeysComponent,
     AddKeysPageComponent,
+    UserComponent,
+    AdminUserPageComponent,
   ],
   imports: [
     BrowserModule,
