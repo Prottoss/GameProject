@@ -26,8 +26,8 @@ import { OrdersUserComponent } from './orders-user/orders-user.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AddKeysComponent } from './add-keys/add-keys.component';
 import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
-import { UserComponent } from './user/user.component';
-import { AdminUserPageComponent } from './admin-user-page/admin-user-page.component';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { PriceRangePipe } from './price-range.pipe';
 
 
 @NgModule({
@@ -54,8 +54,8 @@ import { AdminUserPageComponent } from './admin-user-page/admin-user-page.compon
     ShoppingCartComponent,
     AddKeysComponent,
     AddKeysPageComponent,
-    UserComponent,
-    AdminUserPageComponent,
+    SearchFilterPipe,
+    PriceRangePipe,
   ],
   imports: [
     BrowserModule,
