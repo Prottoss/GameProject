@@ -3,6 +3,7 @@ import { Game } from '../dto/Game';
 import { FormGroup, NgForm } from '@angular/forms';
 import { GamesService } from '../services/games.service';
 import { GameKey } from '../dto/GameKey';
+import { GenresService } from '../services/genres.service';
 
 @Component({
   selector: 'app-add-games',
@@ -16,7 +17,7 @@ export class AddGamesComponent implements OnInit {
   notEditable: boolean = true;
   buttonText: string = "Edit";
 
-  constructor(private gameService : GamesService) {
+  constructor(private gameService : GamesService,public genresService : GenresService) {
     this.game = new Game("0","","","",0,"");
   }
 

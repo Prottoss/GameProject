@@ -22,7 +22,9 @@
 
                 <div class="form-group">
                     <label for="gameGenre">Game Genre</label>
-                    <input type="text" name="gameGenre" class="form-control" [(ngModel)]="game.gameGenre" [readonly]="notEditable">
+                    <select name="gameGenre" class="dropdown form-control" [(ngModel)]="game.gameGenre" [disabled]="notEditable">
+                        <option *ngFor="let genre of genresService.getGenres()" [value]="genre.genreName">{{genre.genreName}}</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
