@@ -20,7 +20,7 @@ export class AuthService {
     return this.http.post(AuthService.url +"/login", {"username":username, "password":password})
     .pipe( tap( (res:any)=>
     {
-      console.group("AuthService Login response = ",res);
+      //console.group("AuthService Login response = ",res);
       if(res['success']==true)
       {
         const token = res['data']['id_token'];

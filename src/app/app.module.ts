@@ -16,7 +16,6 @@ import { AddGamesComponent } from './add-games/add-games.component';
 import { AddGamesPageComponent } from './add-games-page/add-games-page.component';
 import { GenreFilterPipe } from './genre-filter.pipe';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
-import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerProfilePageComponent } from './customer-profile-page/customer-profile-page.component';
 import { GameComponent } from './game/game.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
@@ -44,7 +43,6 @@ import { PriceRangePipe } from './price-range.pipe';
     AddGamesPageComponent,
     GenreFilterPipe,
     CheckoutPageComponent,
-    CustomerProfileComponent,
     CustomerProfilePageComponent,
     GameComponent,
     OrdersPageComponent,

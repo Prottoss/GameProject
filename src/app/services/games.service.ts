@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Game } from '../dto/Game';
 import { tap } from "rxjs/operators";
 import { OrdersService } from './orders.service';
