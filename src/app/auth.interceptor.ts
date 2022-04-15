@@ -18,6 +18,9 @@ export class AuthInterceptor implements HttpInterceptor {
     if(id_token == null){
       return next.handle(request);
     }
+    if (request.url.includes('AWSAccessKeyId')) {
+      return next.handle(request);
+    }
     const cloned = request.clone( {
       headers: request.headers.set("Authorization", "Bearer "+ id_token)
     })
