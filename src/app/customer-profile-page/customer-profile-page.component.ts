@@ -8,10 +8,12 @@ import { UsersService } from '../services/users.service';
   templateUrl: './customer-profile-page.component.html',
   styleUrls: ['./customer-profile-page.component.css']
 })
+
 export class CustomerProfilePageComponent implements OnInit {
 
   user: User = new User("","","","","",new Date(),"","",new Date());
   selectedFile!: File;
+  uploadUrl!: string;
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
 
   constructor(public usersService:UsersService,  private http: HttpClient) { }
@@ -20,19 +22,31 @@ export class CustomerProfilePageComponent implements OnInit {
     this.usersService.getUser().subscribe((data)=>{this.user = data});
   }
 
-  onFileSelected(event: any)
+  onFileSelected(event:any)
   {
-    this.selectedFile = <File>event.target.files[0];
-    console.log(event);
+    if(event.target.files)
+    {
+      this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile);
+    }
   }
 
   onUpload()
   {
-    let fd = new FormData();
-    //fd.append("image",this.selectedFile,this.selectedFile.name);
-    this.http.post(this.url+"/uploadFile",this.selectedFile).subscribe(res=>{console.log(res)});
-  }
+    const fd = new FormData();
+    fd.append("image",this.selectedFile,this.selectedFile.name);
+    this.http.post(this.url+"/uploadFile",null).subscribe((res:any) =>
+    {
+      console.log(res);
+      this.uploadUrl = res["uploadUrl"];
+      console.log(this.uploadUrl);
+      
+      this.http.put(this.uploadUrl,fd).subscribe(res1=>
+      {
+        console.log(res1)
+      });
+    });
 
-  
-
+    
+  }  
 }
