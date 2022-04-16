@@ -1,12 +1,14 @@
 import { Component, OnInit, Input, EventEmitter, Output, NgModule } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Game } from '../dto/Game';
+import { Comments } from '../dto/Comments';
 import { GamesService } from '../services/games.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { OrdersService } from '../services/orders.service';
 import { Subscription } from 'rxjs';
 import { ShoppingCartService } from '../services/shopping-cart.service';
+import { CommentsService } from '../services/comments.service';
 
 
 @Component({
@@ -20,13 +22,16 @@ export class GamePageComponent implements OnInit {
   defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
+  commentId! : string;
   game: Game = new Game("","","","",0,"");
+  comments: Comments = new Comments("","", new Date);
   private sub : any;
+  private subComments : any;
   noStock = false;
   buttonText = "Add to Cart"; 
   result = false;
   
-  constructor(private gameService: GamesService, private route: ActivatedRoute, private cartService:ShoppingCartService)
+  constructor(private gameService: GamesService, private route: ActivatedRoute, private cartService:ShoppingCartService, private commentService:CommentsService)
   {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
@@ -46,6 +51,11 @@ export class GamePageComponent implements OnInit {
       console.log("callback, g= ",num);
     });
 
+    this.subComments = this.route.params.subscribe(params => {
+      this.commentId = params['commentID'];
+      console.log("CommentId: ", this.commentId);
+      this.commentService.getComment(this.commentId).pipe(tap((c)=>{this.comments = c})).subscribe();
+    });
   }
 
   ngOnInit(): void {

@@ -1,4 +1,6 @@
 import { GameKey } from "./GameKey";
+import { Comments } from "./Comments";
+
 export class Game{
     gameID : string;
     gameName : string;
@@ -8,6 +10,8 @@ export class Game{
     gamePic: string;
     gameKeys: GameKey[];
     gameHidden : boolean=false;
+    gameComment: Comments[];
+
 
 
     constructor(gameId : string, gameName : string, gameDescription : string, gameGenre: string, gamePrice: number, gamePic: string){
@@ -18,6 +22,7 @@ export class Game{
         this.gamePrice = gamePrice;
         this.gamePic = gamePic;
         this.gameKeys = [];
+        this.gameComment = [];
     }
 
     static generateEmptyGame(){

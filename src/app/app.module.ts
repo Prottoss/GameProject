@@ -27,6 +27,7 @@ import { AddKeysComponent } from './add-keys/add-keys.component';
 import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { PriceRangePipe } from './price-range.pipe';
+import { AddCommentsComponent } from './add-comments/add-comments.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { PriceRangePipe } from './price-range.pipe';
     AddKeysPageComponent,
     SearchFilterPipe,
     PriceRangePipe,
+    AddCommentsComponent,
   ],
   imports: [
     BrowserModule,
