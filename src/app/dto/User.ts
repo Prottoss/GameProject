@@ -1,5 +1,4 @@
 import { Order } from "./Order";
-import { Comments } from "./Comments";
 
 export class User
 {
@@ -12,8 +11,7 @@ export class User
     userGender: string;
     userType: string;
     userAccountCreated: Date;
-    userOrders: Order[];
-    userComment: Comments[];
+    userOrders: Order[];    
 
     public constructor (uId: string, uName:string, uFname:string, uSurname: string, uEmail:string, uDOB:Date, uGender: string, uType:string,uAccountCreated: Date)
     {
@@ -27,7 +25,6 @@ export class User
         this.userType = uType;
         this.userAccountCreated = uAccountCreated;
         this.userOrders = [];
-        this.userComment = [];
     }
     
 }

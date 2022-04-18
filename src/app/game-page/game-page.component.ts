@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output, NgModule } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Game } from '../dto/Game';
+import { User } from '../dto/User';
 import { Comments } from '../dto/Comments';
 import { GamesService } from '../services/games.service';
 import { ActivatedRoute } from '@angular/router';
@@ -18,15 +19,20 @@ import { CommentsService } from '../services/comments.service';
 })
 export class GamePageComponent implements OnInit {
 
-  //qty!: number;
+  @Input() games : Game;  
+  gameComment : Game[] =[];
+  selectedGameComment: Game = Game.generateEmptyGame();
+
   defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
-  commentId! : string;
   game: Game = new Game("","","","",0,"");
+
+  commentId! : string;
   comment: Comments = Comments.generateEmptyComment();
   private sub : any;
   private subComments : any;
+
   noStock = false;
   buttonText = "Add to Cart"; 
   result = false;
@@ -56,6 +62,8 @@ export class GamePageComponent implements OnInit {
       console.log("CommentId: ", this.commentId);
       this.commentService.getComment(this.commentId).pipe(tap((c)=>{this.comment = c})).subscribe();
     });
+
+    this.games = Game.generateEmptyGame();
   }
 
   ngOnInit(): void {
@@ -79,6 +87,11 @@ export class GamePageComponent implements OnInit {
 
   getComment(Comment : Comments){
     this.comment = Comment;
+  }
+
+  selected(comment : Game){
+    console.log("Selected = "+comment.gameComment)
+    this.selectedGameComment = comment;    
   }
 
 }

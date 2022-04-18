@@ -19,13 +19,24 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="row">
-        <h4>About</h4>
-        <p>{{game.gameDesc}}</p>
-        <br>
-
-        <app-add-comments [comments]="comment" class="col"></app-add-comments>              
+                <h4>About</h4>
+                <p>{{game.gameDesc}}</p>
+                <br>                
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-sm-5 col-md-6 col-12 pb-4" >
+                            <h1>Comments</h1>
+                            <div class="comment mt-4 text-justify float-left"
+                             *ngFor="let c of gameComment let i = index">                                
+                                <p>{{c.gameComment[i]}}</p>
+                            </div>        
+                        </div>
+                        <br>
+                <app-add-comments [comments]="comment" class="col"></app-add-comments>              
+            </div>
+        </div>
     </div>
 </div>
-
