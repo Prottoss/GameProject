@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Game } from '../dto/Game';
 import { GamesService } from '../services/games.service';
+import { Comments } from '../dto/Comments';
 
 @Component({
   selector: 'app-add-comments',
@@ -10,11 +11,13 @@ import { GamesService } from '../services/games.service';
 })
 export class AddCommentsComponent implements OnInit {
 
-  @Input() game : Game;
+  @Input() comments : Comments;
+  game : Game;
   comment : string = "";
 
 
   constructor(private gameService : GamesService) {
+    this.comments = Comments.generateEmptyComment()
     this.game = Game.generateEmptyGame();
   }
 

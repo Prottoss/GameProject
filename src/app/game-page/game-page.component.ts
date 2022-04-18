@@ -24,7 +24,7 @@ export class GamePageComponent implements OnInit {
   gameId!: string;
   commentId! : string;
   game: Game = new Game("","","","",0,"");
-  comments: Comments = new Comments("","", new Date);
+  comment: Comments = Comments.generateEmptyComment();
   private sub : any;
   private subComments : any;
   noStock = false;
@@ -54,7 +54,7 @@ export class GamePageComponent implements OnInit {
     this.subComments = this.route.params.subscribe(params => {
       this.commentId = params['commentID'];
       console.log("CommentId: ", this.commentId);
-      this.commentService.getComment(this.commentId).pipe(tap((c)=>{this.comments = c})).subscribe();
+      this.commentService.getComment(this.commentId).pipe(tap((c)=>{this.comment = c})).subscribe();
     });
   }
 
@@ -75,6 +75,10 @@ export class GamePageComponent implements OnInit {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  getComment(Comment : Comments){
+    this.comment = Comment;
   }
 
 }

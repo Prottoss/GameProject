@@ -10,4 +10,9 @@ export class Comments
         this.commentDate = cDate;
         this.commentID = cID;
     }
+
+
+    static generateEmptyComment(){
+        return new Comments("","",new Date());
+    }
 } 
