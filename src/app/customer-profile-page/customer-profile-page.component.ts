@@ -33,15 +33,11 @@ export class CustomerProfilePageComponent implements OnInit {
 
   onUpload()
   {
-    const fd = new FormData();
-    fd.append("image",this.selectedFile,this.selectedFile.name);
     this.http.post(this.url+"/uploadFile",null).subscribe((res:any) =>
     {
-      console.log(res);
       this.uploadUrl = res["uploadUrl"];
-      console.log(this.uploadUrl);
-      
-      this.http.put(this.uploadUrl,fd).subscribe(res1=>
+
+      this.http.put(this.uploadUrl,this.selectedFile).subscribe(res1=>
       {
         console.log(res1)
       });
