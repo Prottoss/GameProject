@@ -59,12 +59,9 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     SearchFilterPipe,
     PriceRangePipe,
     AddCommentsComponent,
-<<<<<<< HEAD
     SupplierDetailsComponent,
     SupplierPageComponent,
-=======
     LoadingScreenComponent,
->>>>>>> 009d1b913fc031d0849b5a7b1d78df0c757f2b67
   ],
   imports: [
     BrowserModule,
