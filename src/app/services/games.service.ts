@@ -11,6 +11,7 @@ export class GamesService {
 
   games : Game[]=[];
 
+  apiurl: string = "https://n66lbvd524.execute-api.us-east-1.amazonaws.com/production/v4/games";
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
 
   constructor(private http: HttpClient) 
@@ -75,5 +76,15 @@ export class GamesService {
   getKeysCount(id:String)
   {
     return this.http.get<number>(this.url+"/getStock?gameId="+id);
+  }
+
+  getApiDetails()
+  {
+    let body = {
+      "search":"cyberpunk 2077",
+      "limit": 1,
+      "fields": "*"
+    };
+    return this.http.post(this.apiurl, {body});
   }
 }
