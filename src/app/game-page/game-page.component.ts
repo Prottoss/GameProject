@@ -45,8 +45,7 @@ export class GamePageComponent implements OnInit {
       this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g})).subscribe();
     });
 
-    this.gameService.getKeysCount(this.gameId).subscribe((num) =>
-    {
+    this.gameService.getKeysCount(this.gameId).subscribe((num) =>{
       this.maxQty = num;
 
       if(this.maxQty == 0)
@@ -62,6 +61,10 @@ export class GamePageComponent implements OnInit {
       console.log("CommentId: ", this.commentId);
       this.commentService.getComment(this.commentId).pipe(tap((c)=>{this.comment = c})).subscribe();
     });
+
+    // this.gameService.getApiDetails().subscribe((res) =>{
+    //   console.log(res)
+    // });
 
     this.games = Game.generateEmptyGame();
   }
