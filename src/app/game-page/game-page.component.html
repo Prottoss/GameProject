@@ -1,43 +1,45 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 g-5">
-            <img class="d-block w-100" src="{{game.gamePic}}" alt="game pic">
+<div *ngIf="loaded==true">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 g-5">
+                <img class="d-block w-100" src="{{game.gamePic}}" alt="game pic">
+            </div>
+            <div class="col-md-6">
+                <p class="newarrival text-centre">NEW</p>
+                <h1>{{game.gameName}}</h1>
+                <h2>€ {{game.gamePrice}}</h2>
+                <h3>Genre:</h3>
+                <p>{{game.gameGenre}}</p>
+                <br>
+
+                <h4>In Stock: <b>{{maxQty}}</b></h4>
+                <br>
+
+                <button class="btn btn-primary" (click)=addToCart(game) [disabled]="noStock">{{buttonText}}</button>
+                <!--<button class="btn btn-primary" routerLink="/checkout" type="submit" (click)="onPlaceOrder(qty)" [disabled]="noStock">{{buttonText}}</button>-->
+            </div>
         </div>
-        <div class="col-md-6">
-            <p class="newarrival text-centre">NEW</p>
-            <h1>{{game.gameName}}</h1>
-            <h2>€ {{game.gamePrice}}</h2>
-            <h3>Genre:</h3>
-            <p>{{game.gameGenre}}</p>
-            <br>
+    </div>
 
-            <h4>In Stock: <b>{{maxQty}}</b></h4>
+    <div class="container">
+        <div class="row">
+            <h4>About</h4>
+            <p>{{game.gameDesc}}</p>
             <br>
+        </div>
+    </div>
 
-            <button class="btn btn-primary" (click)=addToCart(game) [disabled]="noStock">{{buttonText}}</button>
-            <!--<button class="btn btn-primary" routerLink="/checkout" type="submit" (click)="onPlaceOrder(qty)" [disabled]="noStock">{{buttonText}}</button>-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+                <h1>Comments</h1>
+                <div class="comment mt-4 text-justify float-left" *ngFor="let c of gameComment let i = index">
+                    <p>{{c.gameComment[i]}}</p>
+                </div>
+            </div>
+            <br>
+            <app-add-comments [comments]="comment" class="col"></app-add-comments>
         </div>
     </div>
 </div>
-
-<div class="container">
-    <div class="row">
-                <h4>About</h4>
-                <p>{{game.gameDesc}}</p>
-                <br>                        
-    </div>
-</div>
-
-<div class="container" >
-    <div class="row">
-        <div class="col-sm-5 col-md-6 col-12 pb-4" >
-            <h1>Comments</h1>
-            <div class="comment mt-4 text-justify float-left"
-             *ngFor="let c of gameComment let i = index">                                
-                <p>{{c.gameComment[i]}}</p>
-            </div>        
-        </div>
-        <br>
-        <app-add-comments [comments]="comment" class="col"></app-add-comments>
-    </div> 
-</div>     
+<app-loading-screen *ngIf="loaded==false"></app-loading-screen>

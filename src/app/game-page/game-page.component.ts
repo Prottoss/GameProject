@@ -27,7 +27,7 @@ export class GamePageComponent implements OnInit {
   maxQty!: number;
   gameId!: string;
   game: Game = Game.generateEmptyGame();
-
+  loaded : boolean = false;
   commentId! : string;
   comment: Comments = Comments.generateEmptyComment();
   private sub : any;
@@ -42,7 +42,7 @@ export class GamePageComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
       console.log("GameId: ", this.gameId);
-      this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g})).subscribe();
+      this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g;this.loaded=true})).subscribe();
     });
 
     this.gameService.getKeysCount(this.gameId).subscribe((num) =>{

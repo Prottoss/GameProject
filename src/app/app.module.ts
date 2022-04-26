@@ -30,6 +30,7 @@ import { PriceRangePipe } from './price-range.pipe';
 import { AddCommentsComponent } from './add-comments/add-comments.component';
 import { SupplierDetailsComponent } from './supplier-details/supplier-details.component';
 import { SupplierPageComponent } from './supplier-page/supplier-page.component';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 
 
 @NgModule({
@@ -58,8 +59,12 @@ import { SupplierPageComponent } from './supplier-page/supplier-page.component';
     SearchFilterPipe,
     PriceRangePipe,
     AddCommentsComponent,
+<<<<<<< HEAD
     SupplierDetailsComponent,
     SupplierPageComponent,
+=======
+    LoadingScreenComponent,
+>>>>>>> 009d1b913fc031d0849b5a7b1d78df0c757f2b67
   ],
   imports: [
     BrowserModule,
