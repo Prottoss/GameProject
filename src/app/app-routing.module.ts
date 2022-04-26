@@ -14,12 +14,14 @@ import { OrdersUserComponent } from './orders-user/orders-user.component';
 import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { AdminUserPageComponent } from './admin-user-page/admin-user-page.component';
+import { SupplierPageComponent } from './supplier-page/supplier-page.component';
 
 const routes: Routes = [
   //{path: "", redirectTo:"games", pathMatch: "full"},
   {path: "cart", component: ShoppingCartComponent},
   {path: "register", component: RegisterComponent},
   {path: "games", component: GameListComponent},
+  {path: "publishers", component: SupplierPageComponent},
   {path: "games/:gameId", component: GamePageComponent},
   {path: "checkout", component: CheckoutPageComponent },
   {path: "addGames", component: AddGamesPageComponent},

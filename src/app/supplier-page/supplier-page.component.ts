@@ -18,7 +18,6 @@ export class SupplierPageComponent implements OnInit {
   }
 
   getGame(Game : Game){
-    //console.log(Game);
     this.game = Game;
   }
 
