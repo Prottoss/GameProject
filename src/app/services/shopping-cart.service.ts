@@ -11,7 +11,7 @@ export class ShoppingCartService {
 
   public cartList: Game[] = [];
   public gamesList = new BehaviorSubject<any>([]);
-  public game: Game = new Game("","","","",0,"");
+  public game: Game = Game.generateEmptyGame();
   private inCart = false;
 
   constructor(public gameService:GamesService) { }

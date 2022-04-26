@@ -13,7 +13,7 @@ export class AdminUserPageComponent implements OnInit {
   @Output() user: EventEmitter<User> = new EventEmitter<User>();
 
   users : User[] =[];
-  selectedOrder : User = new User("","","","","",new Date(),"","",new Date());
+  selectedOrder : User = User.generateEmptyUser();
   searchText : string = "";
   
   constructor(private userService: UsersService) { }

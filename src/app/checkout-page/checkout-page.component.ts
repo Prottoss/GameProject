@@ -19,8 +19,8 @@ export class CheckoutPageComponent implements OnInit
   public games: Game[] = [];
   gameIds: string[] = [];
   public finalTotal: number = 0;
-  user: User = new User("","","","","",new Date(),"","",new Date());
-  order: Order = new Order("",0,0,new Date);
+  user: User = User.generateEmptyUser();
+  order: Order = Order.generateEmptyOrder();
   gameId!: string;
 
   constructor(public gameService:GamesService, private ordersService:OrdersService, private usersService: UsersService, private cartService: ShoppingCartService,private route: Router) 

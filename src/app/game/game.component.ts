@@ -13,7 +13,7 @@ export class GameComponent implements OnInit {
   @Output() game: EventEmitter<Game> = new EventEmitter<Game>();
 
   games : Game[] = [];
-  selectedGame : Game = new Game("","","","",0,"");
+  selectedGame : Game = Game.generateEmptyGame();
   searchText : string = "";
 
   constructor(private gameService: GamesService) {

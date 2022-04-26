@@ -17,4 +17,8 @@ export class Order
         this.orderPrice = oPrice;
         this.orderItem = [];
     }
+
+    static generateEmptyOrder(){
+        return new Order("",0,0,new Date);
+    }
 } 

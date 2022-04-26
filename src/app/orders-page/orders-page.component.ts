@@ -13,7 +13,7 @@ import { OrderItem } from '../dto/OrderItem';
 export class OrdersPageComponent implements OnInit {
 
   orderId!: string;
-  orders: Order = new Order("", 0,0, new Date());
+  orders: Order = Order.generateEmptyOrder();
   orderItem: OrderItem = new OrderItem("","");
   private sub : any;
   orderKey!:string;

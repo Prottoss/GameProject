@@ -11,7 +11,7 @@ import { UsersService } from '../services/users.service';
 
 export class CustomerProfilePageComponent implements OnInit {
 
-  user: User = new User("","","","","",new Date(),"","",new Date());
+  user: User = User.generateEmptyUser();
   selectedFile!: File;
   uploadUrl!: string;
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";

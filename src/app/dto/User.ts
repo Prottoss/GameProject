@@ -26,5 +26,9 @@ export class User
         this.userAccountCreated = uAccountCreated;
         this.userOrders = [];
     }
+
+    static generateEmptyUser(){
+        return new User("","","","","",new Date(),"","",new Date());
+    }
     
 }

@@ -28,6 +28,8 @@ import { AddKeysPageComponent } from './add-keys-page/add-keys-page.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { PriceRangePipe } from './price-range.pipe';
 import { AddCommentsComponent } from './add-comments/add-comments.component';
+import { SupplierDetailsComponent } from './supplier-details/supplier-details.component';
+import { SupplierPageComponent } from './supplier-page/supplier-page.component';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { AddCommentsComponent } from './add-comments/add-comments.component';
     SearchFilterPipe,
     PriceRangePipe,
     AddCommentsComponent,
+    SupplierDetailsComponent,
+    SupplierPageComponent,
   ],
   imports: [
     BrowserModule,

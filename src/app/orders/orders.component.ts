@@ -13,11 +13,11 @@ export class OrdersComponent implements OnInit {
   @Input() user : User;
 
   users : User[] =[];
-  selectedUser : User = new User("","","","","",new Date(),"","",new Date());
+  selectedUser : User = User.generateEmptyUser();
   searchText : string = "";
 
   constructor(private userService: UsersService) {
-    this.user = new User("","","","","",new Date(),"","",new Date());
+    this.user = User.generateEmptyUser();
    }
 
   ngOnInit(): void {

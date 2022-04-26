@@ -18,7 +18,7 @@ export class AddGamesComponent implements OnInit {
   buttonText: string = "Edit";
 
   constructor(private gameService : GamesService,public genresService : GenresService) {
-    this.game = new Game("0","","","",0,"");
+    this.game = Game.generateEmptyGame();
   }
 
   ngOnInit(): void {
@@ -54,7 +54,7 @@ export class AddGamesComponent implements OnInit {
   {
     this.notEditable = false;
     this.buttonText = "Save";
-    this.game = new Game("0","","","",0,"");
+    this.game = Game.generateEmptyGame();
   }
 
   deleteGame()

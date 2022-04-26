@@ -26,7 +26,7 @@ export class GamePageComponent implements OnInit {
   defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
-  game: Game = new Game("","","","",0,"");
+  game: Game = Game.generateEmptyGame();
 
   commentId! : string;
   comment: Comments = Comments.generateEmptyComment();

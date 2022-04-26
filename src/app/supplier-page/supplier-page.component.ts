@@ -3,18 +3,17 @@ import { Game } from '../dto/Game';
 import { UsersService } from '../services/users.service';
 
 @Component({
-  selector: 'app-add-games-page',
-  templateUrl: './add-games-page.component.html',
-  styleUrls: ['./add-games-page.component.css']
+  selector: 'app-supplier-page',
+  templateUrl: './supplier-page.component.html',
+  styleUrls: ['./supplier-page.component.css']
 })
-export class AddGamesPageComponent implements OnInit {
+export class SupplierPageComponent implements OnInit {
 
   game : Game = Game.generateEmptyGame();
 
-  constructor(public userService: UsersService) { }
+  constructor(private userService : UsersService) { }
 
   ngOnInit(): void {
-
     this.userService.roleGuard("ADMIN");
   }
 
