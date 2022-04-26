@@ -38,6 +38,10 @@ export class GamesService {
     return this.http.post(this.url+"/addKeys?gameId="+id, {"keys":keys});
   }
 
+  savePub(id:string, pub:string[]){
+    return this.http.post(this.url+"/savePublisher?gameId="+id, {"publisher":pub});
+  }
+
   addComments(id:string, comment:string){
     return this.http.post(this.url+"/addGameComment?commentID="+id, {"comment":comment});
   }

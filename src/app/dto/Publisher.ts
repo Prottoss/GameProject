@@ -1,9 +1,9 @@
 export class Publisher{
     
-    pubName: String;
-    pubEmail: String;
+    pubName: string;
+    pubEmail: string;
 
-    constructor(pubName: String, pubEmail:String)
+    constructor(pubName: string, pubEmail:string)
     {
         this.pubName = pubName;
         this.pubEmail = pubEmail;

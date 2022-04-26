@@ -13,7 +13,7 @@ export class Game{
     gameKeys: GameKey[];
     gameHidden : boolean=false;
     gameComment: Comments[];
-    gamePublisher: Publisher[];
+    publisher: Publisher;
 
 
 
@@ -26,7 +26,7 @@ export class Game{
         this.gamePic = gamePic;
         this.gameKeys = [];
         this.gameComment = [];
-        this.gamePublisher = [];
+        this.publisher = new Publisher("","");
     }
 
     static generateEmptyGame(){
