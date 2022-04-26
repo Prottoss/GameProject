@@ -11,7 +11,8 @@ export class User
     userGender: string;
     userType: string;
     userAccountCreated: Date;
-    userOrders: Order[];    
+    userOrders: Order[];
+    userProfilePicURL: string;
 
     public constructor (uId: string, uName:string, uFname:string, uSurname: string, uEmail:string, uDOB:Date, uGender: string, uType:string,uAccountCreated: Date)
     {
@@ -25,6 +26,7 @@ export class User
         this.userType = uType;
         this.userAccountCreated = uAccountCreated;
         this.userOrders = [];
+        this.userProfilePicURL = "";
     }
 
     static generateEmptyUser(){
