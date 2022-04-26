@@ -15,11 +15,12 @@ export class CustomerProfilePageComponent implements OnInit {
   selectedFile!: File;
   uploadUrl!: string;
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
+  loaded : boolean=false;
 
   constructor(public usersService:UsersService,  private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.usersService.getUser().subscribe((data)=>{this.user = data});
+    this.usersService.getUser().subscribe((data)=>{this.user = data;this.loaded=true});
   }
 
   onFileSelected(event:any)

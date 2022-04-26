@@ -15,12 +15,13 @@ export class GameListComponent implements OnInit {
   nameText = "";
   priceRangeMin : number = 0;
   priceRangeMax : number = 200;
+  loaded : boolean = false
 
   constructor( public gamesService: GamesService, public genresComp: GenresSelectComponent) { }
 
   ngOnInit(): void 
   {
-    this.gamesService.getGames().subscribe((data)=>{this.games = data}); // get all game data, it will be filtered with the pipe later
+    this.gamesService.getGames().subscribe((data)=>{this.games = data;this.loaded=true}); // get all game data, it will be filtered with the pipe later
   }
 
   genreChosen(genreName: string){
