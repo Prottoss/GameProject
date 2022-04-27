@@ -9,6 +9,7 @@
     <div class="container">
         <div class="card bg-dark col-6 mx-auto">
             <div class="card-body">
+                <img *ngIf="user.userProfilePicURL!=''" src="{{user.userProfilePicURL}}" width="100em">
                 <h3>Username: <b>{{user.username}}</b></h3>
                 <h3>Name: {{user.userFirstname}}</h3>
                 <h3>Surname: {{user.userSurname}}</h3>
