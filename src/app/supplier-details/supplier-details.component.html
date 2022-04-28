@@ -1,51 +1,39 @@
 <div class="container col mx-auto">
     <div class="card bg-dark">
         <div class="card-header">
-            <h3>Game Details</h3>
+            <h3>Publisher Details</h3>
         </div>
-        <form #addForm="ngForm">
+        
+        
+        <input type="text" name="gameID" class="form-control" [(ngModel)]="game.gameID" readonly hidden>
+        
+        <form #saveForm="ngForm">
             <div class="card-body">
                 <div class="form-group">
-                    <label for="gameID">Game ID</label>
-                    <input type="text" name="gameID" class="form-control" [readonly]=true>
-                </div>
-
-                <div class="form-group">
-                    <label for="gameName">Game Name</label>
-                    <input type="text" name="gameName" class="form-control" >
-                </div>
-
-                <div class="form-group">
-                    <label for="gameDescription">Game Description</label>
-                    <input type="text" name="gameDesc" class="form-control" >
-                </div>
-
-                <div class="form-group">
-                    <label for="gamePrice">Game Price</label>
-                    <input type="number" name="gamePrice" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="gamePic">Game Image</label>
-                    <input type="text" name="gamePic" class="form-control" >
+                    <label for="pubName">Publisher Name</label>
+                    <input type="text" name="pubName" class="form-control" [(ngModel)]="game.publisher.pubName" [readonly]="notEditable">
                 </div>
                 <div class="form-group">
-                    <br>
-                    <input type="checkbox" name="gameHidden">
-                    <label for="gameHidden">Hidden</label>
+                    <label for="pubEmail">Publisher Email</label>
+                    <input type="email" email name="pubEmail" class="form-control" [(ngModel)]="game.publisher.pubEmail" [readonly]="notEditable">
                 </div>
+                <hr>
+                <!--<div>
+                    <div>
+                        <h1>Name: {{game.publisher.pubName}}</h1>
+                    </div>
+                    <div>
+                        <h1>Email: {{game.publisher.pubEmail}}</h1>
+                    </div>
+                </div>-->
             </div>
-
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-success" type="submit">keke</button>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-primary" type="button">New</button>
+                        <button class="btn btn-success" type="button" (click)="onSubmit()">{{buttonText}}</button>
                     </div>
                 </div>
             </div>
-        </form>
+        </form>        
     </div>
 </div>

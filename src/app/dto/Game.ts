@@ -1,5 +1,7 @@
 import { GameKey } from "./GameKey";
 import { Comments } from "./Comments";
+import { Publisher } from "./Publisher";
+
 
 export class Game{
     gameID : string;
@@ -11,6 +13,7 @@ export class Game{
     gameKeys: GameKey[];
     gameHidden : boolean=false;
     gameComment: Comments[];
+    publisher: Publisher;
 
 
 
@@ -23,6 +26,7 @@ export class Game{
         this.gamePic = gamePic;
         this.gameKeys = [];
         this.gameComment = [];
+        this.publisher = new Publisher("","");
     }
 
     static generateEmptyGame(){

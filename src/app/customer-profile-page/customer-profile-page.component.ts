@@ -34,7 +34,7 @@ export class CustomerProfilePageComponent implements OnInit {
 
   onUpload()
   {
-    this.http.post(this.url+"/uploadFile",null).subscribe((res:any) =>
+    this.http.post(this.url+"/uploadFile?username="+localStorage.getItem("username"),null).subscribe((res:any) =>
     {
       this.uploadUrl = res["uploadUrl"];
 

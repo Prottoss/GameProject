@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
 import { Game } from '../dto/Game';
 import { GamesService } from '../services/games.service';
 
