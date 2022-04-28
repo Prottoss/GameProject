@@ -33,12 +33,23 @@
         <div class="row">
             <div class="col-sm-5 col-md-6 col-12 pb-4">
                 <h1>Comments</h1>
-                <div class="comment mt-4 text-justify float-left" *ngFor="let c of gameComment let i = index">
-                    <p>{{c.gameComment[i]}}</p>
+                <div class="comment mt-4 text-justify float-left" *ngFor="let c of loopedComments let i = index">
+                    <span>Date: {{c.date}}</span>
+                    <span>User:</span>
+                    <span>Comment: {{c.text}}</span>
                 </div>
             </div>
             <br>
-            <app-add-comments [comments]="comment" class="col"></app-add-comments>
+            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                <form #addForm="ngForm">
+                    <div class="form-group">
+                        <h4>Leave a comment</h4> 
+                        <label for="comment">Message</label> 
+                        <textarea type="text" name="comment" rows="10" [(ngModel)]="comments" class="form-control"></textarea>
+                    </div>              
+                    <button class="btn btn-primary" type="button" (click)="addComments()">Post comment</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

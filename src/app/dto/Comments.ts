@@ -1,18 +1,21 @@
 export class Comments
 {
-    commentID: string;
-    userComment: string;
-    commentDate: Date;
 
-    constructor (uComments: string, cID: string, cDate:Date)
+    text: string;
+    //Change date to display from angular and not lambda
+    date: string;
+    //Display username from local storage
+    user : string;
+
+    constructor (uComments: string,  cDate:string, user: string)
     {
-        this.userComment = uComments;
-        this.commentDate = cDate;
-        this.commentID = cID;
+        this.text = uComments;
+        this.date = cDate; 
+        this.user = user;
     }
 
 
     static generateEmptyComment(){
-        return new Comments("","",new Date());
+        return new Comments("","","");
     }
 } 

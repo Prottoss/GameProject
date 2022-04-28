@@ -25,9 +25,9 @@ url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
    return this.http.get<Comments>(this.url+"/getGameComment?commentID="+id);
   }
 
-  getComments()
+  getComments(id:string)
   {
-   return this.http.get<Comments[]>(this.url+"/getGameComments").pipe(tap((c)=>{this.comments = c}));
+   return this.http.get<Comments[]>(this.url+"/getGameComments?gameId="+id).pipe(tap((g)=>{this.comments = g}));
   }
 
 }

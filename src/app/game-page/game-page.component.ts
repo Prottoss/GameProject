@@ -23,6 +23,13 @@ export class GamePageComponent implements OnInit {
   gameComment : Game[] =[];
   selectedGameComment: Game = Game.generateEmptyGame();
 
+  
+  
+  newGameID : string = "";
+  comments : string = "";
+  loopedComments :Comments[] = [];
+
+  
   defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
@@ -41,6 +48,7 @@ export class GamePageComponent implements OnInit {
   {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
+      this.newGameID = this.gameId;
       console.log("GameId: ", this.gameId);
       this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g;this.loaded=true})).subscribe();
     });
@@ -58,10 +66,11 @@ export class GamePageComponent implements OnInit {
 
     this.subComments = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
-      //Displays Game ID
       console.log("GameID: ", this.gameId);
-      //ID in this is the ID in this.game
-      this.commentService.getComment(this.gameId).pipe(tap((c)=>{this.comment = c})).subscribe();
+      this.commentService.getComments(this.gameId).subscribe((data)=>{
+        this.loopedComments = data
+        console.log("pepepe",data)  
+      })
     });
 
     this.games = Game.generateEmptyGame();
@@ -96,4 +105,18 @@ export class GamePageComponent implements OnInit {
     this.selectedGameComment = comment;    
   }
 
+  addComments(){
+    if(this.comments=="")
+      alert("Please Enter Comment");
+    else{
+      var toAdd = this.comments;
+      console.log("This GameID: ", this.game.gameID);     
+      this.gameService.addComments(this.game.gameID, toAdd).subscribe();
+      console.log("Comment added was: "+ toAdd); 
+      this.comments = ""
+    }
+  }
+
 }
+
+
