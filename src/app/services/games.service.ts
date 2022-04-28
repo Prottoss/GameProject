@@ -87,7 +87,7 @@ export class GamesService {
     let body = {
       "search":"cyberpunk 2077",
       "limit": 1,
-      "fields": "*"
+      "fields": "*" 
     };
     return this.http.post(this.apiurl, {body});
   }
