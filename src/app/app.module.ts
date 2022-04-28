@@ -31,6 +31,7 @@ import { AddCommentsComponent } from './add-comments/add-comments.component';
 import { SupplierDetailsComponent } from './supplier-details/supplier-details.component';
 import { SupplierPageComponent } from './supplier-page/supplier-page.component';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import { AddCommentsPageComponent } from './add-comments-page/add-comments-page.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     SupplierDetailsComponent,
     SupplierPageComponent,
     LoadingScreenComponent,
+    AddCommentsPageComponent,
   ],
   imports: [
     BrowserModule,

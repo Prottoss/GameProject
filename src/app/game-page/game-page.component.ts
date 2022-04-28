@@ -57,19 +57,18 @@ export class GamePageComponent implements OnInit {
     });
 
     this.subComments = this.route.params.subscribe(params => {
-      this.commentId = params['commentID'];
-      console.log("CommentId: ", this.commentId);
-      this.commentService.getComment(this.commentId).pipe(tap((c)=>{this.comment = c})).subscribe();
+      this.gameId = params['gameId'];
+      //Displays Game ID
+      console.log("GameID: ", this.gameId);
+      //ID in this is the ID in this.game
+      this.commentService.getComment(this.gameId).pipe(tap((c)=>{this.comment = c})).subscribe();
     });
-
-    // this.gameService.getApiDetails().subscribe((res) =>{
-    //   console.log(res)
-    // });
 
     this.games = Game.generateEmptyGame();
   }
 
   ngOnInit(): void {
+    
   }
 
   addToCart(game: Game)

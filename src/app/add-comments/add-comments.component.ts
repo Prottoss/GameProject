@@ -25,13 +25,15 @@ export class AddCommentsComponent implements OnInit {
   }
 
   addComments(){
-    if(this.game.gameID=="")
-      alert("Please select a game!");
-    else if(this.comment=="")
+    if(this.comment=="")
       alert("Please Enter Comment");
     else{
-      var toAdd = this.comment;
+      var toAdd = this.comment; 
+      //Should the ID of the game being passed but returns blank      
+      console.log("This GameID: ", this.game.gameID);
+      //Can't add game with blank ID
       this.gameService.addComments(this.game.gameID, toAdd).subscribe();
+      console.log("Comment added was: "+ toAdd); 
       this.comment = ""
     }
   }
