@@ -73,6 +73,10 @@ export class GamePageComponent implements OnInit {
       })
     });
 
+    this.gameService.getApiDetails().subscribe((res)=>{
+      console.log(res);
+    })
+
     this.games = Game.generateEmptyGame();
   }
 
