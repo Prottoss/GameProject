@@ -21,23 +21,23 @@
         </div>
     </div>
     <div class="container">
-        <div class="slideshow-container">
-            <div class="ng-container" *ngFor="let screen of this.screens">
-                <div class="mySlides fade">
-                    <img src="{{screen}}" alt="" width="500px">
-                </div>
-            </div>
-            <a class="prev" (click)="plusSlides(-1)"><i class="fa-solid fa-circle-chevron-left"></i></a>
-            <a class="next" (click)="plusSlides(1)"><i class="fa-solid fa-circle-chevron-right"></i></a>
-        </div>
-    </div>
-
-    <div class="container">
         <div class="row">
             <h4>About</h4>
             <p>{{game.gameDesc}}</p>
             <br>
         </div>
+    </div>
+
+    <div class="container">
+        <ngb-carousel *ngIf="screens" class="col-7 mx-auto">
+            <ng-container *ngFor="let screen of screens">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                      <img [src]="screen" alt="" width="650px">
+                    </div>
+                  </ng-template>
+            </ng-container>
+        </ngb-carousel>
     </div>
 
     <div class="container">
@@ -65,3 +65,4 @@
     </div>
 </div>
 <app-loading-screen *ngIf="loaded==false"></app-loading-screen>
+  

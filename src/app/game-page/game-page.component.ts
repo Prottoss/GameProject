@@ -18,6 +18,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './game-page.component.html',
   styleUrls: ['./game-page.component.css']
 })
+
 export class GamePageComponent implements OnInit {
 
   @Input() games : Game;  
@@ -69,7 +70,6 @@ export class GamePageComponent implements OnInit {
             let y = g[i]["url"].replace(rep,"1080p");
             this.screens.push(y); 
           };
-          console.log(this.screens);
         });
       })).subscribe();
     });
@@ -89,17 +89,15 @@ export class GamePageComponent implements OnInit {
       this.gameId = params['gameId'];
       console.log("GameID: ", this.gameId);
       this.commentService.getComments(this.gameId).subscribe((data)=>{
-        this.loopedComments = data
-        console.log("pepepe",data)  
+        this.loopedComments = data  
       })
     });
 
     this.games = Game.generateEmptyGame();
-
   }
 
   ngOnInit(): void {
-    this.showSlides(this.slideIndex);
+    
   }
 
   addToCart(game: Game)
@@ -138,34 +136,6 @@ export class GamePageComponent implements OnInit {
       this.comments = ""
     }
   }
-
-  plusSlides(n:any)
-  {
-    this.showSlides(this.slideIndex += n);
-  }
-
-  showSlides(n:any)
-  {
-    let i;
-    let slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
-
-    if (n > slides.length)
-    {
-      this.slideIndex = 1
-    }
-    if(n < 1)
-    {
-      this.slideIndex = slides.length
-    }
-    for(i = 0; i < slides.length; i++) 
-    {
-      slides[i].style.display = "none";
-    }
-    slides[this.slideIndex-1].style.display = "block";
-  }
-
-  
-
 }
 
 
