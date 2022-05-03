@@ -20,26 +20,17 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="container" *ngFor="let screen of this.screens">
-        <img src="{{screen}}" alt="" width="300px">
-    </div> -->
-
-    <div id="carouselControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" *ngFor="let screen of this.screens">
-            <img class="d-block w-100" src="{{screen}}" alt="First slide" width="300px">
-          </div>
+    <div class="container">
+        <div class="slideshow-container">
+            <div class="ng-container" *ngFor="let screen of this.screens">
+                <div class="mySlides fade">
+                    <img src="{{screen}}" alt="" width="500px">
+                </div>
+            </div>
+            <a class="prev" (click)="plusSlides(-1)"><i class="fa-solid fa-circle-chevron-left"></i></a>
+            <a class="next" (click)="plusSlides(1)"><i class="fa-solid fa-circle-chevron-right"></i></a>
         </div>
-        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-      </div>
+    </div>
 
     <div class="container">
         <div class="row">

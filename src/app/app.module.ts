@@ -32,7 +32,7 @@ import { SupplierDetailsComponent } from './supplier-details/supplier-details.co
 import { SupplierPageComponent } from './supplier-page/supplier-page.component';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { AddCommentsPageComponent } from './add-comments-page/add-comments-page.component';
-import { SlideshowModule } from 'ng-simple-slideshow';
+
 
 
 @NgModule({
@@ -67,7 +67,6 @@ import { SlideshowModule } from 'ng-simple-slideshow';
     AddCommentsPageComponent,
   ],
   imports: [
-    SlideshowModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

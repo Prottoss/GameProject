@@ -45,6 +45,8 @@ export class GamePageComponent implements OnInit {
   noStock = false;
   buttonText = "Add to Cart"; 
   result = false;
+
+  slideIndex = 1;
   
   constructor(private gameService: GamesService, private route: ActivatedRoute, private cartService:ShoppingCartService, private commentService:CommentsService, private http: HttpClient)
   {
@@ -64,9 +66,10 @@ export class GamePageComponent implements OnInit {
 
           for(let i = 0; i<g.length; i++)
           {
-            let y = g[i]["url"].replace(rep,"720p");
+            let y = g[i]["url"].replace(rep,"1080p");
             this.screens.push(y); 
           };
+          console.log(this.screens);
         });
       })).subscribe();
     });
@@ -92,10 +95,11 @@ export class GamePageComponent implements OnInit {
     });
 
     this.games = Game.generateEmptyGame();
+
   }
 
   ngOnInit(): void {
-    
+    this.showSlides(this.slideIndex);
   }
 
   addToCart(game: Game)
@@ -133,6 +137,31 @@ export class GamePageComponent implements OnInit {
       console.log("Comment added was: "+ toAdd); 
       this.comments = ""
     }
+  }
+
+  plusSlides(n:any)
+  {
+    this.showSlides(this.slideIndex += n);
+  }
+
+  showSlides(n:any)
+  {
+    let i;
+    let slides = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
+
+    if (n > slides.length)
+    {
+      this.slideIndex = 1
+    }
+    if(n < 1)
+    {
+      this.slideIndex = slides.length
+    }
+    for(i = 0; i < slides.length; i++) 
+    {
+      slides[i].style.display = "none";
+    }
+    slides[this.slideIndex-1].style.display = "block";
   }
 
   
