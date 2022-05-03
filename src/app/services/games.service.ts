@@ -11,7 +11,6 @@ export class GamesService {
 
   games : Game[]=[];
 
-  apiurl: string = "https://brkcs5lal5.execute-api.us-east-1.amazonaws.com/production/v4/games";
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
 
   constructor(private http: HttpClient) 
@@ -82,21 +81,5 @@ export class GamesService {
     return this.http.get<number>(this.url+"/getStock?gameId="+id);
   }
 
-  getApiDetails()
-  {
-    let header = new HttpHeaders ({
-      "Client-ID" : "mg7xki1grnqh4bc8z94zcrtzevc41g",
-      "Authorization" : "Bearer nt0nli8sosicznepf8kalslaorq9o5",
-      //"Access-Control-Allow-Headers":"Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
-    });
-
-    let options = {headers: header};
-
-    let body = {
-      "search":"cyberpunk 2077",
-      "limit": 1,
-      "fields": "*" 
-    };
-    return this.http.post(this.apiurl, body);
-  }
+  
 }

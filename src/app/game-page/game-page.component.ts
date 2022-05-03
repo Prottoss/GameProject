@@ -10,6 +10,7 @@ import { OrdersService } from '../services/orders.service';
 import { Subscription } from 'rxjs';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { CommentsService } from '../services/comments.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -23,13 +24,14 @@ export class GamePageComponent implements OnInit {
   gameComment : Game[] =[];
   selectedGameComment: Game = Game.generateEmptyGame();
 
-  
-  
+  apiurl: string = "https://brkcs5lal5.execute-api.us-east-1.amazonaws.com/production/v4/games";
+
   newGameID : string = "";
   comments : string = "";
   loopedComments :Comments[] = [];
+  apiGame!:any;
+  screens: string[] = [];
 
-  
   defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
@@ -44,13 +46,29 @@ export class GamePageComponent implements OnInit {
   buttonText = "Add to Cart"; 
   result = false;
   
-  constructor(private gameService: GamesService, private route: ActivatedRoute, private cartService:ShoppingCartService, private commentService:CommentsService)
+  constructor(private gameService: GamesService, private route: ActivatedRoute, private cartService:ShoppingCartService, private commentService:CommentsService, private http: HttpClient)
   {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
       this.newGameID = this.gameId;
       console.log("GameId: ", this.gameId);
-      this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g;this.loaded=true})).subscribe();
+      this.gameService.getGame(this.gameId).pipe(tap((g)=>{
+        this.game = g;
+        this.loaded=true;
+        
+        let body = 'search "'+g.gameName+'"; limit 1; fields name, screenshots.url;';
+
+        this.http.post(this.apiurl, body).subscribe((res:any)=>{
+          let g = res[0]["screenshots"];
+          let rep = /thumb/gi;
+
+          for(let i = 0; i<g.length; i++)
+          {
+            let y = g[i]["url"].replace(rep,"720p");
+            this.screens.push(y); 
+          };
+        });
+      })).subscribe();
     });
 
     this.gameService.getKeysCount(this.gameId).subscribe((num) =>{
@@ -72,10 +90,6 @@ export class GamePageComponent implements OnInit {
         console.log("pepepe",data)  
       })
     });
-
-    this.gameService.getApiDetails().subscribe((res)=>{
-      console.log(res);
-    })
 
     this.games = Game.generateEmptyGame();
   }
@@ -120,6 +134,8 @@ export class GamePageComponent implements OnInit {
       this.comments = ""
     }
   }
+
+  
 
 }
 
