@@ -57,8 +57,7 @@ export class GamePageComponent implements OnInit {
       console.log("GameId: ", this.gameId);
       this.gameService.getGame(this.gameId).pipe(tap((g)=>{
         this.game = g;
-        this.loaded=true;
-        
+
         let body = 'search "'+g.gameName+'"; limit 1; fields name, screenshots.url;';
 
         this.http.post(this.apiurl, body).subscribe((res:any)=>{
@@ -71,6 +70,8 @@ export class GamePageComponent implements OnInit {
             this.screens.push(y); 
           };
         });
+
+        this.loaded=true;
       })).subscribe();
     });
 
