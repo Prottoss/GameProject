@@ -10,6 +10,7 @@ import { OrdersService } from './orders.service';
 export class GamesService {
 
   games : Game[]=[];
+  gameId = "";
 
   apiurl: string = "https://n66lbvd524.execute-api.us-east-1.amazonaws.com/production/v4/games";
   url: string = "https://nyyvg3k62g.execute-api.us-east-1.amazonaws.com/stage-2";
@@ -17,6 +18,15 @@ export class GamesService {
   constructor(private http: HttpClient) 
   { 
     
+  }
+
+  setGameId(id:string)
+  {
+    this.gameId = id;
+  }
+  getGameId()
+  {
+    return this.gameId;
   }
 
   getGames()

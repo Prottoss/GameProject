@@ -34,8 +34,10 @@
             <div class="col-sm-5 col-md-6 col-12 pb-4">
                 <h1>Comments</h1>
                 <div class="comment mt-4 text-justify float-left" *ngFor="let c of loopedComments let i = index">
-                    <span>Date: {{c.date}}</span>
-                    <span>User:</span>
+                    <span>Date: {{c.date |  date:'dd/MM/yyyy'}}</span>
+                    <br>
+                    <span>User: {{loggedInUser}}</span>
+                    <br>
                     <span>Comment: {{c.text}}</span>
                 </div>
             </div>

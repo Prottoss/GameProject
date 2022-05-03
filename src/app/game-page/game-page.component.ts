@@ -28,6 +28,7 @@ export class GamePageComponent implements OnInit {
   newGameID : string = "";
   comments : string = "";
   loopedComments :Comments[] = [];
+  loggedInUser : any;
 
   
   defaultQty: number = 1;
@@ -48,6 +49,7 @@ export class GamePageComponent implements OnInit {
   {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
+      //Set Function Instead of newGmeID
       this.newGameID = this.gameId;
       console.log("GameId: ", this.gameId);
       this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g;this.loaded=true})).subscribe();
@@ -69,6 +71,7 @@ export class GamePageComponent implements OnInit {
       console.log("GameID: ", this.gameId);
       this.commentService.getComments(this.gameId).subscribe((data)=>{
         this.loopedComments = data
+        this.loggedInUser = localStorage.getItem("username");
         console.log("pepepe",data)  
       })
     });
