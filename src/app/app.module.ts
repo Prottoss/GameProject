@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +32,8 @@ import { SupplierDetailsComponent } from './supplier-details/supplier-details.co
 import { SupplierPageComponent } from './supplier-page/supplier-page.component';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { AddCommentsPageComponent } from './add-comments-page/add-comments-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -69,13 +71,15 @@ import { AddCommentsPageComponent } from './add-comments-page/add-comments-page.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true},
     GenresSelectComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

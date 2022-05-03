@@ -10,6 +10,7 @@ import { OrdersService } from '../services/orders.service';
 import { Subscription } from 'rxjs';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { CommentsService } from '../services/comments.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -17,20 +18,22 @@ import { CommentsService } from '../services/comments.service';
   templateUrl: './game-page.component.html',
   styleUrls: ['./game-page.component.css']
 })
+
 export class GamePageComponent implements OnInit {
 
   @Input() games : Game;  
   gameComment : Game[] =[];
   selectedGameComment: Game = Game.generateEmptyGame();
 
-  
-  
+  apiurl: string = "https://brkcs5lal5.execute-api.us-east-1.amazonaws.com/production/v4/games";
+
   newGameID : string = "";
   comments : string = "";
   loopedComments :Comments[] = [];
   loggedInUser : any;
+  apiGame!:any;
+  screens: string[] = [];
 
-  
   defaultQty: number = 1;
   maxQty!: number;
   gameId!: string;
@@ -44,15 +47,34 @@ export class GamePageComponent implements OnInit {
   noStock = false;
   buttonText = "Add to Cart"; 
   result = false;
+ 
+  slideIndex = 1;
   
-  constructor(private gameService: GamesService, private route: ActivatedRoute, private cartService:ShoppingCartService, private commentService:CommentsService)
+  constructor(private gameService: GamesService, private route: ActivatedRoute, private cartService:ShoppingCartService, private commentService:CommentsService, private http: HttpClient)
   {
     this.sub = this.route.params.subscribe(params => {
       this.gameId = params['gameId'];
       //Set Function Instead of newGmeID
       this.newGameID = this.gameId;
       console.log("GameId: ", this.gameId);
-      this.gameService.getGame(this.gameId).pipe(tap((g)=>{this.game = g;this.loaded=true})).subscribe();
+      this.gameService.getGame(this.gameId).pipe(tap((g)=>{
+        this.game = g;
+
+        let body = 'search "'+g.gameName+'"; limit 1; fields name, screenshots.url;';
+
+        this.http.post(this.apiurl, body).subscribe((res:any)=>{
+          let g = res[0]["screenshots"];
+          let rep = /thumb/gi;
+
+          for(let i = 0; i<g.length; i++)
+          {
+            let y = g[i]["url"].replace(rep,"1080p");
+            this.screens.push(y); 
+          };
+        });
+
+        this.loaded=true;
+      })).subscribe();
     });
 
     this.gameService.getKeysCount(this.gameId).subscribe((num) =>{
@@ -119,7 +141,6 @@ export class GamePageComponent implements OnInit {
       this.comments = ""
     }
   }
-
 }
 
 

@@ -2,10 +2,19 @@
 
 body {
     background-color: #3a3a3a;
-    color: #fff;
+    color: rgb(255, 255, 255);
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: "liga" on;
+    -moz-font-feature-settings: "liga" on; 
 }
+
+/* .bg-dark{
+    background-color: #232323 !important;
+}
+
+.btn-dark{
+    background-color: #232323 !important;
+    
+} */
