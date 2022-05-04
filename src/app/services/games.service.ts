@@ -51,7 +51,7 @@ export class GamesService {
     return this.http.post(this.url+"/savePublisher?gameId="+id, {"publisher":pub});
   }
 
-  addComments(id:string, comment:string){
+  addComments(id:string, comment:string){ 
     return this.http.post(this.url+"/addGameComments?gameId="+id, {"comments":comment});
   }
 
