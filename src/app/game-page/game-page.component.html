@@ -8,10 +8,20 @@
                 <p class="newarrival text-centre">NEW</p>
                 <h1>{{game.gameName}}</h1>
                 <h2>€ {{game.gamePrice}}</h2>
-                <h3>Genre:</h3>
-                <p>{{game.gameGenre}}</p>
+                <h3>Genre: {{game.gameGenre}}</h3>
+                <h5>Platforms:</h5>
+                <ng-container *ngFor="let plat of platforms">
+                    <span>{{plat}}, </span>
+                </ng-container>
                 <br>
-
+                <ng-template #t let-fill="fill">
+                    <span class="star" [class.full]="fill === 100">
+                      <span class="half" [style.width.%]="fill">&starf;</span>&star;
+                    </span>
+                  </ng-template>
+                  
+                  <ngb-rating [(rate)]="this.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                <br>
                 <h4>In Stock: <b>{{maxQty}}</b></h4>
                 <br>
 
@@ -29,15 +39,26 @@
     </div>
 
     <div class="container">
-        <ngb-carousel *ngIf="screens" class="col-6 mx-auto">
-            <ng-container *ngFor="let screen of screens">
-                <ng-template ngbSlide>
-                    <div class="picsum-img-wrapper">
-                      <img [src]="screen" alt="" width="650px">
-                    </div>
-                  </ng-template>
-            </ng-container>
-        </ngb-carousel>
+        <div class="row">
+            <ngb-carousel *ngIf="screens" class="col-6">
+                <ng-container *ngFor="let screen of screens">
+                    <ng-template ngbSlide>
+                        <div class="picsum-img-wrapper">
+                          <img [src]="screen" alt="" width="650px">
+                        </div>
+                      </ng-template>
+                </ng-container>
+            </ngb-carousel>
+            <ngb-carousel *ngIf="artworks" class="col-6">
+                <ng-container *ngFor="let art of artworks">
+                    <ng-template ngbSlide>
+                        <div class="picsum-img-wrapper">
+                          <img [src]="art" alt="" width="650px">
+                        </div>
+                      </ng-template>
+                </ng-container>
+            </ngb-carousel>
+        </div>
     </div>
 
     <div class="container">
@@ -59,7 +80,8 @@
                         <h4>Leave a comment</h4> 
                         <label for="comment">Message</label> 
                         <textarea type="text" name="comment" rows="10" [(ngModel)]="comments" class="form-control"></textarea>
-                    </div>              
+                    </div> 
+                    <br>             
                     <button class="btn btn-primary" type="button" (click)="addComments()">Post comment</button>
                 </form>
             </div>
