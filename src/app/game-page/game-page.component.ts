@@ -31,8 +31,11 @@ export class GamePageComponent implements OnInit {
   comments : string = "";
   loopedComments :Comments[] = [];
   loggedInUser : any;
-  apiGame!:any;
+
   screens: string[] = [];
+  artworks: string[] = [];
+  platforms: string[] =[];
+  rating!: number;
 
   defaultQty: number = 1;
   maxQty!: number;
@@ -57,21 +60,41 @@ export class GamePageComponent implements OnInit {
       //Set Function Instead of newGmeID
       this.newGameID = this.gameId;
       console.log("GameId: ", this.gameId);
+
+      //gets game based on the id
       this.gameService.getGame(this.gameId).pipe(tap((g)=>{
         this.game = g;
-
-        let body = 'search "'+g.gameName+'"; limit 1; fields name, screenshots.url;';
+        //returns game and then using game name makes API call
+        let body = 'search "'+g.gameName+'"; limit 1; fields name, screenshots.url, artworks.url, platforms.abbreviation, rating;';
 
         this.http.post(this.apiurl, body).subscribe((res:any)=>{
-          let g = res[0]["screenshots"];
+          //returns results and processes them
+          let scr = res[0]["screenshots"];
+          let art = res[0]["artworks"];
+          let pl = res[0]["platforms"];
+          let r = res[0]["rating"];
+          this.rating = r/2/10;
           let rep = /thumb/gi;
 
-          for(let i = 0; i<g.length; i++)
+          for(var g of scr)
           {
-            let y = g[i]["url"].replace(rep,"1080p");
+            let y = g["url"].replace(rep,"1080p");
             this.screens.push(y); 
           };
+          for(var a of art)
+          {
+            let x = a["url"].replace(rep, "1080p");
+            this.artworks.push(x);; 
+          };
+          for(var p of pl)
+          {
+            let z = p["abbreviation"];
+            this.platforms.push(z);; 
+          };
+
+          console.log(this.rating)
         });
+
 
         this.loaded=true;
       })).subscribe();
