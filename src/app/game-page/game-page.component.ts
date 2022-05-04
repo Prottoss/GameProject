@@ -63,6 +63,7 @@ export class GamePageComponent implements OnInit {
         let body = 'search "'+g.gameName+'"; limit 1; fields name, screenshots.url;';
 
         this.http.post(this.apiurl, body).subscribe((res:any)=>{
+          console.log(res);
           let g = res[0]["screenshots"];
           let rep = /thumb/gi;
 
@@ -135,9 +136,8 @@ export class GamePageComponent implements OnInit {
       alert("Please Enter Comment");
     else{
       var toAdd = this.comments;
-      console.log("This GameID: ", this.game.gameID);     
-      this.gameService.addComments(this.game.gameID, toAdd).subscribe();
-      console.log("Comment added was: "+ toAdd); 
+
+      this.gameService.addComments(this.game.gameID, toAdd).subscribe(); 
       this.comments = ""
     }
   }

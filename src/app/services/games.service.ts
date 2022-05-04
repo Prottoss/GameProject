@@ -55,6 +55,7 @@ export class GamesService {
     return this.http.post(this.url+"/addGameComments?gameId="+id, {"comments":comment});
   }
 
+
   saveGame(game : Game)
   {
     console.log("Save new Game : ", game.gameName);
