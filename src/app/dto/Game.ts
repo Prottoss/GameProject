@@ -30,6 +30,6 @@ export class Game{
     }
 
     static generateEmptyGame(){
-        return new Game("", "", "", "", 0, "");
+        return new Game("0", "", "", "", 0, "");
     }
 }
