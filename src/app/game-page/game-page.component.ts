@@ -92,11 +92,12 @@ export class GamePageComponent implements OnInit {
             this.platforms.push(z);; 
           };
 
+          this.loaded=true;
           console.log(this.rating)
         });
 
 
-        this.loaded=true;
+        
       })).subscribe();
     });
 
